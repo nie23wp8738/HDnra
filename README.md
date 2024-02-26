@@ -5,11 +5,12 @@
 
 <!-- badges: start -->
 
-[![R-CMD-check](https://github.com/nie23wp8738/HDNRA/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/nie23wp8738/HDNRA/actions/workflows/R-CMD-check.yaml)
 [![License:
 GPL-3.0](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 [![Codecov test
 coverage](https://codecov.io/gh/nie23wp8738/HDNRA/branch/main/graph/badge.svg)](https://app.codecov.io/gh/nie23wp8738/HDNRA?branch=main)
+[![R-CMD-check](https://github.com/nie23wp8738/HDNRA/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/nie23wp8738/HDNRA/actions/workflows/R-CMD-check.yaml)
+
 <!-- badges: end -->
 
 The R package **HDNRA** includes the latest methods based on
@@ -157,4 +158,4 @@ glhtbf_zzg2022(Y, G, n, p)
 Please note that the HDNRA project is released with a [Contributor Code
 of
 Conduct](https://contributor-covenant.org/version/2/1/CODE_OF_CONDUCT.html).
-By contributing to this project, you agree to abide by its terms.
+By contributing to this project, you agree to abide by its terms
