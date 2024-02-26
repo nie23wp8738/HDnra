@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.9.22)  27 FEB 2024 00:08
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.9.22)  27 FEB 2024 03:28
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -354,8 +354,8 @@ File: l3backend-pdftex.def 2023-01-16 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count290
 \l__pdf_internal_box=\box58
 )
-(/private/var/folders/sg/5zr6m1r54vx5zwj7z8yqkms00000gn/T/RtmpPTBGsY/Rd2pdf1072
-d6705fc3f/Rd2.aux)
+(/private/var/folders/sg/5zr6m1r54vx5zwj7z8yqkms00000gn/T/RtmpYcpnzs/Rd2pdf1300
+f781c62bc/Rd2.aux)
 \openout1 = `Rd2.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 8.
@@ -393,10 +393,10 @@ LaTeX Font Info:    ... okay on input line 8.
 )
 Package hyperref Info: Link coloring ON on input line 8.
 
-(/private/var/folders/sg/5zr6m1r54vx5zwj7z8yqkms00000gn/T/RtmpPTBGsY/Rd2pdf1072
-d6705fc3f/Rd2.out)
-(/private/var/folders/sg/5zr6m1r54vx5zwj7z8yqkms00000gn/T/RtmpPTBGsY/Rd2pdf1072
-d6705fc3f/Rd2.out)
+(/private/var/folders/sg/5zr6m1r54vx5zwj7z8yqkms00000gn/T/RtmpYcpnzs/Rd2pdf1300
+f781c62bc/Rd2.out)
+(/private/var/folders/sg/5zr6m1r54vx5zwj7z8yqkms00000gn/T/RtmpYcpnzs/Rd2pdf1300
+f781c62bc/Rd2.out)
 \@outlinefile=\write4
 \openout4 = `Rd2.out'.
 
@@ -444,8 +444,8 @@ LaTeX Font Info:    Trying to load font information for T1+phv on input line 46
 (/usr/local/texlive/2023/texmf-dist/tex/latex/psnfss/t1phv.fd
 File: t1phv.fd 2020/03/25 scalable font definitions for T1/phv.
 )
-(/private/var/folders/sg/5zr6m1r54vx5zwj7z8yqkms00000gn/T/RtmpPTBGsY/Rd2pdf1072
-d6705fc3f/Rd2.toc)
+(/private/var/folders/sg/5zr6m1r54vx5zwj7z8yqkms00000gn/T/RtmpYcpnzs/Rd2pdf1300
+f781c62bc/Rd2.toc)
 \tf@toc=\write5
 \openout5 = `Rd2.toc'.
 
@@ -564,8 +564,8 @@ her prob-lems for high-dimensional
  []
 
 [26] [27] [28] [29] [30] [31] [32] [33] [34]
-(/private/var/folders/sg/5zr6m1r54vx5zwj7z8yqkms00000gn/T/RtmpPTBGsY/Rd2pdf1072
-d6705fc3f/Rd2.ind [35]
+(/private/var/folders/sg/5zr6m1r54vx5zwj7z8yqkms00000gn/T/RtmpYcpnzs/Rd2pdf1300
+f781c62bc/Rd2.ind [35]
 
 LaTeX Font Warning: Font shape `T1/zi4/m/it' undefined
 (Font)              using `T1/zi4/m/n' instead on input line 56.
@@ -573,8 +573,8 @@ LaTeX Font Warning: Font shape `T1/zi4/m/it' undefined
 [36
 
 ])
-(/private/var/folders/sg/5zr6m1r54vx5zwj7z8yqkms00000gn/T/RtmpPTBGsY/Rd2pdf1072
-d6705fc3f/Rd2.aux)
+(/private/var/folders/sg/5zr6m1r54vx5zwj7z8yqkms00000gn/T/RtmpYcpnzs/Rd2pdf1300
+f781c62bc/Rd2.aux)
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
@@ -607,7 +607,7 @@ l/texlive/2023/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/local/texlive/
 2023/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/local/texlive/2023/texmf
 -dist/fonts/type1/urw/times/utmr8a.pfb></usr/local/texlive/2023/texmf-dist/font
 s/type1/urw/times/utmri8a.pfb>
-Output written on Rd2.pdf (36 pages, 304097 bytes).
+Output written on Rd2.pdf (36 pages, 303869 bytes).
 PDF statistics:
  749 PDF objects out of 1000 (max. 8388607)
  668 compressed objects within 7 object streams

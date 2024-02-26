@@ -19,9 +19,15 @@ Maintainer: ‘Pengfei Wang <nie23.wp8738@e.ntu.edu.sg>’
 
 New submission
 
-License components with restrictions and base license permitting such:
-  GPL (>= 3) + file LICENSE
+Found the following (possibly) invalid URLs:
+  URL: https://www.jstor.org/stable/24306018
+    From: DESCRIPTION
+          man/HDNRA-package.Rd
+          man/ts_bs1996.Rd
+    Status: 403
+    Message: Forbidden
 ```
+This is an article that was published a long time ago，the URL is valid. 
 
 2 \* checking installed package size ... NOTE
 

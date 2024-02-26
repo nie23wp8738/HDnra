@@ -1038,7 +1038,7 @@ statistic = 0.96296, df = 24.6376, cpn = 1.4402, p-value = 0.5144
 > cleanEx()
 > options(digits = 7L)
 > base::cat("Time elapsed: ", proc.time() - base::get("ptime", pos = 'CheckExEnv'),"\n")
-Time elapsed:  2.042 0.153 2.393 0 0 
+Time elapsed:  1.884 0.112 2.117 0 0 
 > grDevices::dev.off()
 null device 
           1 
