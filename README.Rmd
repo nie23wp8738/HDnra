@@ -18,7 +18,7 @@ knitr::opts_chunk$set(
 <!-- badges: start -->
 
 [![R-CMD-check](https://github.com/nie23wp8738/HDNRA/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/nie23wp8738/HDNRA/actions/workflows/R-CMD-check.yaml) [![License: GPL-3.0](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
-
+[![Codecov test coverage](https://codecov.io/gh/nie23wp8738/HDNRA/branch/main/graph/badge.svg)](https://app.codecov.io/gh/nie23wp8738/HDNRA?branch=main)
 <!-- badges: end -->
 
 The R package **HDNRA** includes the latest methods based on normal-reference approach to test the equality of the mean vectors of high-dimensional samples with possibly different covariance matrices. `HDNRA` is also used to demonstrate the implementation of these tests, catering not only to the two-sample problem, but also to the general linear hypothesis testing (GLHT) problem. This package provides easy and user-friendly access to these tests. Both coded in C++ to allow for reasonable execution time using [Rcpp](https://github.com/RcppCore/Rcpp). Besides [Rcpp](https://github.com/RcppCore/Rcpp), the package has no strict dependencies in order to provide a stable self-contained toolbox that invites re-use.

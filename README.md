@@ -8,7 +8,8 @@
 [![R-CMD-check](https://github.com/nie23wp8738/HDNRA/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/nie23wp8738/HDNRA/actions/workflows/R-CMD-check.yaml)
 [![License:
 GPL-3.0](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
-
+[![Codecov test
+coverage](https://codecov.io/gh/nie23wp8738/HDNRA/branch/main/graph/badge.svg)](https://app.codecov.io/gh/nie23wp8738/HDNRA?branch=main)
 <!-- badges: end -->
 
 The R package **HDNRA** includes the latest methods based on
