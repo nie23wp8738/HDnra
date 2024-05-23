@@ -8,7 +8,7 @@
 #'
 #' @usage
 #' ## S3 method for class \pkg{NRtest}
-#' print.NRtest(x, ...)
+#' \method{print}{NRtest}(x, ...)
 #'
 #' @param x an \pkg{NRtest} object.
 #' @param ... further arguments passed to or from other methods.
@@ -21,6 +21,8 @@
 #'
 #' @section Value:
 #' Invisibly returns the input `x`.
+#'
+#' @seealso \code{\link{NRtest.object}}
 #'
 #' @author
 #' Pengfei Wang \email{nie23.wp8738@e.ntu.edu.sg}
