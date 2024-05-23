@@ -3,7 +3,7 @@
 #' @description
 #' Zhang et al. (2020)'s test for testing equality of two-sample high-dimensional mean vectors with assuming that two covariance matrices are the same.
 
-#' @usage ZGZC2020.TS.2cNRT.(y1, y2)
+#' @usage ZGZC2020.TS.2cNRT(y1, y2)
 #' @param y1 The data matrix (\eqn{n_1 \times p}) from the first population. Each row represents a \eqn{p}-dimensional observation.
 #' @param y2 The data matrix (\eqn{n_2 \times p}) from the second population. Each row represents a \eqn{p}-dimensional observation.
 #' @details
