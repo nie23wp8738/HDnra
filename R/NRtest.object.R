@@ -73,6 +73,8 @@
 #' )
 #' print(NRtest.obj2)
 #'
+#' @concept object
+#'
 #' @export
 NRtest.object <- function(statistic,
                           p.value,
