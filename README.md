@@ -30,33 +30,33 @@ and
 [corneal](https://nie23wp8738.github.io/HDNRA/reference/corneal.html).
 
 Seven normal-reference tests for the two-sample problem:
-[ts_zgzc2020()](https://nie23wp8738.github.io/HDNRA/reference/ts_zgzc2020.html),
-[ts_zz2022()](https://nie23wp8738.github.io/HDNRA/reference/ts_zz2022.html),
-[ts_zzz2020()](https://nie23wp8738.github.io/HDNRA/reference/ts_zzz2020.html),
-[tsbf_zwz2023()](https://nie23wp8738.github.io/HDNRA/reference/tsbf_zwz2023.html),
-[tsbf_zz2022()](https://nie23wp8738.github.io/HDNRA/reference/tsbf_zz2022.html),
-[tsbf_zzgz2021()](https://nie23wp8738.github.io/HDNRA/reference/tsbf_zzgz2021.html),
-[tsbf_zzz2023()](https://nie23wp8738.github.io/HDNRA/reference/tsbf_zzz2023.html).
+[ZGZC2020.TS.2cNRT](https://nie23wp8738.github.io/HDNRA/reference/ZGZC2020.TS.2cNRT.html),
+[ZZ2022.TS.3cNRT](https://nie23wp8738.github.io/HDNRA/reference/ZZ2022.TS.3cNRT.html),
+[ZZZ2020.TS.2cNRT](https://nie23wp8738.github.io/HDNRA/reference/ZZZ2020.TS.2cNRT.html),
+[ZWZ2023.TSBF.2cNRT](https://nie23wp8738.github.io/HDNRA/reference/ZWZ2023.TSBF.2cNRT.html),
+[ZZ2022.TSBF.3cNRT](https://nie23wp8738.github.io/HDNRA/reference/ZZ2022.TSBF.3cNRT.html),
+[ZZGZ2021.TSBF.2cNRT](https://nie23wp8738.github.io/HDNRA/reference/ZZGZ2021.TSBF.2cNRT.html),
+[ZZZ2023.TSBF.2cNRT](https://nie23wp8738.github.io/HDNRA/reference/ZZZ2023.TSBF.2cNRT.html).
 
 Five normal-reference tests for the GLHT problem in `HDNRA`:
-[glht_zgz2017()](https://nie23wp8738.github.io/HDNRA/reference/glht_zgz2017.html),
-[glht_zz2022()](https://nie23wp8738.github.io/HDNRA/reference/glht_zz2022.html),
-[glht_zzz2022()](https://nie23wp8738.github.io/HDNRA/reference/glht_zzz2022.html),
-[glhtbf_zz2022()](https://nie23wp8738.github.io/HDNRA/reference/glhtbf_zz2022.html),
-[glhtbf_zzg2022()](https://nie23wp8738.github.io/HDNRA/reference/glhtbf_zzg2022.html).
+[ZGZ2017.GLHT.2cNRT](https://nie23wp8738.github.io/HDNRA/reference/ZGZ2017.GLHT.2cNRT.html),
+[ZZ2022.GLHT.3cNRT](https://nie23wp8738.github.io/HDNRA/reference/ZZ2022.GLHT.3cNRT.html),
+[ZZZ2022.GLHT.2cNRT](https://nie23wp8738.github.io/HDNRA/reference/ZZZ2022.GLHT.2cNRT.html),
+[ZZ2022.GLHTBF.3cNRT](https://nie23wp8738.github.io/HDNRA/reference/ZZ2022.GLHTBF.3cNRT.html),
+[ZZG2022.GLHTBF.2cNRT](https://nie23wp8738.github.io/HDNRA/reference/ZZG2022.GLHTBF.2cNRT.html).
 
 Four existing tests for the two-sample problem in `HDNRA`:
-[ts_bs1996()](https://nie23wp8738.github.io/HDNRA/reference/ts_bs1996.html),
-[ts_sd2008()](https://nie23wp8738.github.io/HDNRA/reference/ts_sd2008.html),
-[tsbf_cq2010()](https://nie23wp8738.github.io/HDNRA/reference/tsbf_cq2010.html),
-[tsbf_skk2013()](https://nie23wp8738.github.io/HDNRA/reference/tsbf_skk2013.html).
+[BS1996.TS.NART](https://nie23wp8738.github.io/HDNRA/reference/BS1996.TS.NART.html),
+[SD2008.TS.NABT](https://nie23wp8738.github.io/HDNRA/reference/SD2008.TS.NABT.html),
+[CQ2010.TSBF.NABT](https://nie23wp8738.github.io/HDNRA/reference/CQ2010.TSBF.NABT.html),
+[SKK2013.TSBF.NABT](https://nie23wp8738.github.io/HDNRA/reference/SKK2013.TSBF.NABT.html).
 
 Five existing tests for the GLHT problem in `HDNRA`:
-[glht_fhw2004()](https://nie23wp8738.github.io/HDNRA/reference/glht_fhw2004.html),
-[glht_sf2006()](https://nie23wp8738.github.io/HDNRA/reference/glht_sf2006.html),
-[glht_ys2012()](https://nie23wp8738.github.io/HDNRA/reference/glht_ys2012.html),
-[glhtbf_zgz2017()](https://nie23wp8738.github.io/HDNRA/reference/glhtbf_zgz2017.html),
-[ks_s2007()](https://nie23wp8738.github.io/HDNRA/reference/ks_s2007.html).
+[FHW2004.GLHT.NABT](https://nie23wp8738.github.io/HDNRA/reference/FHW2004.GLHT.NABT.html),
+[SF2006.GLHT.NABT](https://nie23wp8738.github.io/HDNRA/reference/SF2006.GLHT.NABT.html),
+[YS2012.GLHT.NABT](https://nie23wp8738.github.io/HDNRA/reference/YS2012.GLHT.NABT.html),
+[ZGZ2017.GLHTBF.NABT](https://nie23wp8738.github.io/HDNRA/reference/ZGZ2017.GLHTBF.NABT.html),
+[S2007.ks.NABT](https://nie23wp8738.github.io/HDNRA/reference/S2007.ks.NABT.html).
 
 ## Installation
 
@@ -90,65 +90,127 @@ library(HDNRA)
 Package `HDNRA` comes with two real data sets:
 
 ``` r
-# A COVID19 data set from NCBI with ID GSE152641.
+# A COVID19 data set from NCBI with ID GSE152641 for the two-sample problem.
 ?COVID19
+data(COVID19)
+dim(COVID19)
+#> [1]    87 20460
+group1 <- as.matrix(COVID19[c(2:19, 82:87), ]) ## healthy group
+dim(group1)
+#> [1]    24 20460
+group2 <- as.matrix(COVID19[-c(1:19, 82:87), ]) ## COVID-19 patients
+dim(group2)
+#> [1]    62 20460
 
-# A corneal data set acquired during a keratoconus study.
+# A corneal data set acquired during a keratoconus study for the GLHT problem.
 ?corneal
+data(corneal)
+dim(corneal)
+#> [1]  150 2000
+group1 <- as.matrix(corneal[1:43, ]) ## normal group
+dim(group1)
+#> [1]   43 2000
+group2 <- as.matrix(corneal[44:57, ]) ## unilateral suspect group
+dim(group2)
+#> [1]   14 2000
+group3 <- as.matrix(corneal[58:78, ]) ## suspect map group
+dim(group3)
+#> [1]   21 2000
+group4 <- as.matrix(corneal[79:150, ]) ## clinical keratoconus group
+dim(group4)
+#> [1]   72 2000
 ```
 
 ### Example for two-sample problem
 
 A simple example of how to use one of the normal-reference tests
-`tsbf_zwz2023` using data set `COVID19`:
+`ZWZ2023.TSBF.2cNRT` using data set `COVID19`:
 
 ``` r
 data("COVID19")
 group1 <- as.matrix(COVID19[c(2:19, 82:87), ]) # healthy group1
 group2 <- as.matrix(COVID19[-c(1:19, 82:87), ]) # patients group2
 # The data matrix for tsbf_zwz2023 should be p by n, sometimes we should transpose the data matrix
-tsbf_zwz2023(t(group1), t(group2))
+ZWZ2023.TSBF.2cNRT(group1, group2)
 #> 
+#> Results of Hypothesis Test
+#> --------------------------
 #> 
+#> Test name:                       Zhu et al. (2023)'s test
 #> 
-#> data:  
-#> statistic = 4.1877, df1 = 2.7324, df2 = 171.7596, p-value = 0.008673
+#> Null Hypothesis:                 Difference between two mean vectors is 0
+#> 
+#> Alternative Hypothesis:          Difference between two mean vectors is not 0
+#> 
+#> Data:                            group1 and group2
+#> 
+#> Sample Sizes:                    n1 = 24
+#>                                  n2 = 62
+#> 
+#> Sample Dimension:                20460
+#> 
+#> Test Statistic:                  T[ZWZ] = 4.1877
+#> 
+#> Approximation method to the      2-c matched chi^2-approximation
+#> null distribution of T[ZWZ]: 
+#> 
+#> Approximation parameter(s):      df1 =   2.7324
+#>                                  df2 = 171.7596
+#> 
+#> P-value:                         0.008672887
 ```
 
 ### Example for GLHT problem
 
 A simple example of how to use one of the normal-reference tests
-`glhtbf_zzg2022` using data set `corneal`:
+`ZZG2022.GLHTBF.2cNRT` using data set `corneal`:
 
 ``` r
 data("corneal")
+dim(corneal)
+#> [1]  150 2000
+group1 <- as.matrix(corneal[1:43, ]) ## normal group
+group2 <- as.matrix(corneal[44:57, ]) ## unilateral suspect group
+group3 <- as.matrix(corneal[58:78, ]) ## suspect map group
+group4 <- as.matrix(corneal[79:150, ]) ## clinical keratoconus group
 p <- dim(corneal)[2]
-k <- 4
 Y <- list()
-group1 <- as.matrix(corneal[1:43, ]) # normal
-group2 <- as.matrix(corneal[44:57, ]) # unilateral suspect
-group3 <- as.matrix(corneal[58:78, ]) # suspect
-group4 <- as.matrix(corneal[79:150, ]) # clinical leratoconus
-Y[[1]] <- t(group1)
-Y[[2]] <- t(group2)
-Y[[3]] <- t(group3)
-Y[[4]] <- t(group4)
-dim(Y[[1]])
-#> [1] 2000   43
-dim(Y[[2]])
-#> [1] 2000   14
-dim(Y[[3]])
-#> [1] 2000   21
-dim(Y[[4]])
-#> [1] 2000   72
-n <- c(43, 14, 21, 72)
-G <- cbind(diag(k - 1), rep(-1, k - 1))
-glhtbf_zzg2022(Y, G, n, p)
+k <- 4
+Y[[1]] <- group1
+Y[[2]] <- group2
+Y[[3]] <- group3
+Y[[4]] <- group4
+n <- c(nrow(Y[[1]]),nrow(Y[[2]]),nrow(Y[[3]]),nrow(Y[[4]]))
+G <- cbind(diag(k-1),rep(-1,k-1))
+ZZG2022.GLHTBF.2cNRT(Y,G,n,p)
 #> 
+#> Results of Hypothesis Test
+#> --------------------------
 #> 
+#> Test name:                       Zhang et al. (2022)'s test
 #> 
-#> data:  
-#> statistic = 159.73, df = 6.1652, beta = 6.1464, p-value = 0.0002577
+#> Null Hypothesis:                 The general linear hypothesis is true
+#> 
+#> Alternative Hypothesis:          The general linear hypothesis is not true
+#> 
+#> Data:                            Y
+#> 
+#> Sample Sizes:                    n1 = 43
+#>                                  n2 = 14
+#>                                  n3 = 21
+#>                                  n4 = 72
+#> 
+#> Sample Dimension:                2000
+#> 
+#> Test Statistic:                  T[ZZG] = 159.7325
+#> 
+#> Approximation method to the      2-c matched chi^2-approximation
+#> null distribution of T[ZZG]: 
+#> 
+#> Approximation parameter(s):      df   = 6.1652
+#>                                  beta = 6.1464
+#> 
+#> P-value:                         0.0002577084
 ```
 
 ## Code of Conduct
