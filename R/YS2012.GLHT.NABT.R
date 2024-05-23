@@ -46,7 +46,8 @@
 #' Y[[3]] <- group3
 #' Y[[4]] <- group4
 #' n <- c(nrow(Y[[1]]),nrow(Y[[2]]),nrow(Y[[3]]),nrow(Y[[4]]))
-#' X <- matrix(c(rep(1,n[1]),rep(0,sum(n)),rep(1,n[2]), rep(0,sum(n)),rep(1,n[3]),rep(0,sum(n)),rep(1,n[4])),ncol=k,nrow=sum(n))
+#' X <- matrix(c(rep(1,n[1]),rep(0,sum(n)),rep(1,n[2]), rep(0,sum(n)),
+#'             rep(1,n[3]),rep(0,sum(n)),rep(1,n[4])),ncol=k,nrow=sum(n))
 #' q <- k-1
 #' C <- cbind(diag(q),-rep(1,q))
 #' YS2012.GLHT.NABT(Y,X,C,n,p)
