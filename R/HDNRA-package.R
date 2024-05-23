@@ -9,6 +9,7 @@
 #' @importFrom readr read_csv
 #' @importFrom stats pf
 #' @importFrom Rdpack reprompt
+#' @importFrom stats setNames
 
 
 ## usethis namespace: start
