@@ -157,41 +157,47 @@ BEGIN_RCPP
 END_RCPP
 }
 // glht_fhw2004_cpp
-double glht_fhw2004_cpp(const arma::mat& Y, const arma::mat& X, const arma::mat& C);
-RcppExport SEXP _HDNRA_glht_fhw2004_cpp(SEXP YSEXP, SEXP XSEXP, SEXP CSEXP) {
+double glht_fhw2004_cpp(List Y, const arma::mat& X, const arma::mat& C, const arma::vec& n, int p);
+RcppExport SEXP _HDNRA_glht_fhw2004_cpp(SEXP YSEXP, SEXP XSEXP, SEXP CSEXP, SEXP nSEXP, SEXP pSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
-    Rcpp::traits::input_parameter< const arma::mat& >::type Y(YSEXP);
+    Rcpp::traits::input_parameter< List >::type Y(YSEXP);
     Rcpp::traits::input_parameter< const arma::mat& >::type X(XSEXP);
     Rcpp::traits::input_parameter< const arma::mat& >::type C(CSEXP);
-    rcpp_result_gen = Rcpp::wrap(glht_fhw2004_cpp(Y, X, C));
+    Rcpp::traits::input_parameter< const arma::vec& >::type n(nSEXP);
+    Rcpp::traits::input_parameter< int >::type p(pSEXP);
+    rcpp_result_gen = Rcpp::wrap(glht_fhw2004_cpp(Y, X, C, n, p));
     return rcpp_result_gen;
 END_RCPP
 }
 // glht_sf2006_cpp
-double glht_sf2006_cpp(const arma::mat& Y, const arma::mat& X, const arma::mat& C);
-RcppExport SEXP _HDNRA_glht_sf2006_cpp(SEXP YSEXP, SEXP XSEXP, SEXP CSEXP) {
+double glht_sf2006_cpp(List Y, const arma::mat& X, const arma::mat& C, const arma::vec& n, int p);
+RcppExport SEXP _HDNRA_glht_sf2006_cpp(SEXP YSEXP, SEXP XSEXP, SEXP CSEXP, SEXP nSEXP, SEXP pSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
-    Rcpp::traits::input_parameter< const arma::mat& >::type Y(YSEXP);
+    Rcpp::traits::input_parameter< List >::type Y(YSEXP);
     Rcpp::traits::input_parameter< const arma::mat& >::type X(XSEXP);
     Rcpp::traits::input_parameter< const arma::mat& >::type C(CSEXP);
-    rcpp_result_gen = Rcpp::wrap(glht_sf2006_cpp(Y, X, C));
+    Rcpp::traits::input_parameter< const arma::vec& >::type n(nSEXP);
+    Rcpp::traits::input_parameter< int >::type p(pSEXP);
+    rcpp_result_gen = Rcpp::wrap(glht_sf2006_cpp(Y, X, C, n, p));
     return rcpp_result_gen;
 END_RCPP
 }
 // glht_ys2012_cpp
-arma::vec glht_ys2012_cpp(const arma::mat& Y, const arma::mat& X, const arma::mat& C);
-RcppExport SEXP _HDNRA_glht_ys2012_cpp(SEXP YSEXP, SEXP XSEXP, SEXP CSEXP) {
+arma::vec glht_ys2012_cpp(const Rcpp::List& Y, const arma::mat& X, const arma::mat& C, const arma::vec& n, int p);
+RcppExport SEXP _HDNRA_glht_ys2012_cpp(SEXP YSEXP, SEXP XSEXP, SEXP CSEXP, SEXP nSEXP, SEXP pSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
-    Rcpp::traits::input_parameter< const arma::mat& >::type Y(YSEXP);
+    Rcpp::traits::input_parameter< const Rcpp::List& >::type Y(YSEXP);
     Rcpp::traits::input_parameter< const arma::mat& >::type X(XSEXP);
     Rcpp::traits::input_parameter< const arma::mat& >::type C(CSEXP);
-    rcpp_result_gen = Rcpp::wrap(glht_ys2012_cpp(Y, X, C));
+    Rcpp::traits::input_parameter< const arma::vec& >::type n(nSEXP);
+    Rcpp::traits::input_parameter< int >::type p(pSEXP);
+    rcpp_result_gen = Rcpp::wrap(glht_ys2012_cpp(Y, X, C, n, p));
     return rcpp_result_gen;
 END_RCPP
 }
@@ -252,12 +258,12 @@ BEGIN_RCPP
 END_RCPP
 }
 // glhtbf_zz2022_cpp
-arma::vec glhtbf_zz2022_cpp(List Y, const arma::mat& tG, const arma::vec& n, int p);
+arma::vec glhtbf_zz2022_cpp(const Rcpp::List& Y, const arma::mat& tG, const arma::vec& n, int p);
 RcppExport SEXP _HDNRA_glhtbf_zz2022_cpp(SEXP YSEXP, SEXP tGSEXP, SEXP nSEXP, SEXP pSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
-    Rcpp::traits::input_parameter< List >::type Y(YSEXP);
+    Rcpp::traits::input_parameter< const Rcpp::List& >::type Y(YSEXP);
     Rcpp::traits::input_parameter< const arma::mat& >::type tG(tGSEXP);
     Rcpp::traits::input_parameter< const arma::vec& >::type n(nSEXP);
     Rcpp::traits::input_parameter< int >::type p(pSEXP);
@@ -266,15 +272,17 @@ BEGIN_RCPP
 END_RCPP
 }
 // glht_zzz2022_cpp
-arma::vec glht_zzz2022_cpp(const arma::mat& Y, const arma::mat& X, const arma::mat& C);
-RcppExport SEXP _HDNRA_glht_zzz2022_cpp(SEXP YSEXP, SEXP XSEXP, SEXP CSEXP) {
+arma::vec glht_zzz2022_cpp(const Rcpp::List& Y, const arma::mat& X, const arma::mat& C, const arma::vec& n, int p);
+RcppExport SEXP _HDNRA_glht_zzz2022_cpp(SEXP YSEXP, SEXP XSEXP, SEXP CSEXP, SEXP nSEXP, SEXP pSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
-    Rcpp::traits::input_parameter< const arma::mat& >::type Y(YSEXP);
+    Rcpp::traits::input_parameter< const Rcpp::List& >::type Y(YSEXP);
     Rcpp::traits::input_parameter< const arma::mat& >::type X(XSEXP);
     Rcpp::traits::input_parameter< const arma::mat& >::type C(CSEXP);
-    rcpp_result_gen = Rcpp::wrap(glht_zzz2022_cpp(Y, X, C));
+    Rcpp::traits::input_parameter< const arma::vec& >::type n(nSEXP);
+    Rcpp::traits::input_parameter< int >::type p(pSEXP);
+    rcpp_result_gen = Rcpp::wrap(glht_zzz2022_cpp(Y, X, C, n, p));
     return rcpp_result_gen;
 END_RCPP
 }
@@ -292,15 +300,15 @@ static const R_CallMethodDef CallEntries[] = {
     {"_HDNRA_ts_zzz2020_cpp", (DL_FUNC) &_HDNRA_ts_zzz2020_cpp, 2},
     {"_HDNRA_tsbf_zzz2023_cpp", (DL_FUNC) &_HDNRA_tsbf_zzz2023_cpp, 2},
     {"_HDNRA_ks_s2007_cpp", (DL_FUNC) &_HDNRA_ks_s2007_cpp, 3},
-    {"_HDNRA_glht_fhw2004_cpp", (DL_FUNC) &_HDNRA_glht_fhw2004_cpp, 3},
-    {"_HDNRA_glht_sf2006_cpp", (DL_FUNC) &_HDNRA_glht_sf2006_cpp, 3},
-    {"_HDNRA_glht_ys2012_cpp", (DL_FUNC) &_HDNRA_glht_ys2012_cpp, 3},
+    {"_HDNRA_glht_fhw2004_cpp", (DL_FUNC) &_HDNRA_glht_fhw2004_cpp, 5},
+    {"_HDNRA_glht_sf2006_cpp", (DL_FUNC) &_HDNRA_glht_sf2006_cpp, 5},
+    {"_HDNRA_glht_ys2012_cpp", (DL_FUNC) &_HDNRA_glht_ys2012_cpp, 5},
     {"_HDNRA_glhtbf_zgz2017_cpp", (DL_FUNC) &_HDNRA_glhtbf_zgz2017_cpp, 4},
     {"_HDNRA_glht_zgz2017_cpp", (DL_FUNC) &_HDNRA_glht_zgz2017_cpp, 4},
     {"_HDNRA_glhtbf_zzg2022_cpp", (DL_FUNC) &_HDNRA_glhtbf_zzg2022_cpp, 4},
     {"_HDNRA_glht_zz2022_cpp", (DL_FUNC) &_HDNRA_glht_zz2022_cpp, 4},
     {"_HDNRA_glhtbf_zz2022_cpp", (DL_FUNC) &_HDNRA_glhtbf_zz2022_cpp, 4},
-    {"_HDNRA_glht_zzz2022_cpp", (DL_FUNC) &_HDNRA_glht_zzz2022_cpp, 3},
+    {"_HDNRA_glht_zzz2022_cpp", (DL_FUNC) &_HDNRA_glht_zzz2022_cpp, 5},
     {NULL, NULL, 0}
 };
 
