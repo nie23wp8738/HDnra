@@ -49,16 +49,16 @@ ks_s2007_cpp <- function(Y, n, p) {
     .Call(`_HDNRA_ks_s2007_cpp`, Y, n, p)
 }
 
-glht_fhw2004_cpp <- function(Y, X, C) {
-    .Call(`_HDNRA_glht_fhw2004_cpp`, Y, X, C)
+glht_fhw2004_cpp <- function(Y, X, C, n, p) {
+    .Call(`_HDNRA_glht_fhw2004_cpp`, Y, X, C, n, p)
 }
 
-glht_sf2006_cpp <- function(Y, X, C) {
-    .Call(`_HDNRA_glht_sf2006_cpp`, Y, X, C)
+glht_sf2006_cpp <- function(Y, X, C, n, p) {
+    .Call(`_HDNRA_glht_sf2006_cpp`, Y, X, C, n, p)
 }
 
-glht_ys2012_cpp <- function(Y, X, C) {
-    .Call(`_HDNRA_glht_ys2012_cpp`, Y, X, C)
+glht_ys2012_cpp <- function(Y, X, C, n, p) {
+    .Call(`_HDNRA_glht_ys2012_cpp`, Y, X, C, n, p)
 }
 
 glhtbf_zgz2017_cpp <- function(Y, tG, n, p) {
@@ -81,7 +81,7 @@ glhtbf_zz2022_cpp <- function(Y, tG, n, p) {
     .Call(`_HDNRA_glhtbf_zz2022_cpp`, Y, tG, n, p)
 }
 
-glht_zzz2022_cpp <- function(Y, X, C) {
-    .Call(`_HDNRA_glht_zzz2022_cpp`, Y, X, C)
+glht_zzz2022_cpp <- function(Y, X, C, n, p) {
+    .Call(`_HDNRA_glht_zzz2022_cpp`, Y, X, C, n, p)
 }
 
