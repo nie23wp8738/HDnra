@@ -2,7 +2,6 @@
 #' S3 Class "NRtest"
 
 #' @details
-#'
 #' A class of objects returned by high-dimensional hypothesis testing functions in the \pkg{HDNRA} package,
 #' designed to encapsulate detailed results from statistical hypothesis tests.
 #' These objects are structured similarly to \pkg{htest} objects in the package \pkg{EnvStats} but are tailored
@@ -14,6 +13,18 @@
 #'
 #' @return An object of class \code{"NRtest"} containing both required and optional components depending on the specifics of the hypothesis test,
 #' shown as follows:
+#'
+#' @param statistic Numeric scalar containing the value of the test statistic, with a \code{names} attribute indicating the name of the test statistic.
+#' @param p.value Numeric scalar containing the p-value for the test.
+#' @param method Character string giving the name of the test.
+#' @param null.value Character string indicating the null hypothesis.
+#' @param alternative Character string indicating the alternative hypothesis.
+#' @param parameter Numeric vector containing the estimated approximation parameter(s) associated with the approximation method. This vector has a \code{names} attribute describing its element(s).
+#' @param sample.size Numeric vector containing the number of observations in each group used for the hypothesis test.
+#' @param sample.dimension Numeric scalar containing the dimension of the dataset used for the hypothesis test.
+#' @param estimation.method Character string giving the name of the approximation approach used to approximate the null distribution of the test statistic.
+#' @param data.name Character string describing the data set used in the hypothesis test.
+#' @param ... Additional optional arguments.
 #'
 #' @section Required Components:
 #' These components must be present in every \code{"NRtest"} object:
