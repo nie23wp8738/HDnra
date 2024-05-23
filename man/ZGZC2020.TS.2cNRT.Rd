@@ -4,7 +4,7 @@
 \alias{ZGZC2020.TS.2cNRT}
 \title{Normal-reference-test with two-cumulant (2-c) matched χ^2-approximation for two-sample problem proposed by Zhang et al. (2020)}
 \usage{
-ZGZC2020.TS.2cNRT.(y1, y2)
+ZGZC2020.TS.2cNRT(y1, y2)
 }
 \arguments{
 \item{y1}{The data matrix (\eqn{n_1 \times p}) from the first population. Each row represents a \eqn{p}-dimensional observation.}
