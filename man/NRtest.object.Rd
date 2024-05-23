@@ -18,6 +18,29 @@ NRtest.object(
   ...
 )
 }
+\arguments{
+\item{statistic}{Numeric scalar containing the value of the test statistic, with a \code{names} attribute indicating the name of the test statistic.}
+
+\item{p.value}{Numeric scalar containing the p-value for the test.}
+
+\item{method}{Character string giving the name of the test.}
+
+\item{null.value}{Character string indicating the null hypothesis.}
+
+\item{alternative}{Character string indicating the alternative hypothesis.}
+
+\item{parameter}{Numeric vector containing the estimated approximation parameter(s) associated with the approximation method. This vector has a \code{names} attribute describing its element(s).}
+
+\item{sample.size}{Numeric vector containing the number of observations in each group used for the hypothesis test.}
+
+\item{sample.dimension}{Numeric scalar containing the dimension of the dataset used for the hypothesis test.}
+
+\item{estimation.method}{Character string giving the name of the approximation approach used to approximate the null distribution of the test statistic.}
+
+\item{data.name}{Character string describing the data set used in the hypothesis test.}
+
+\item{...}{Additional optional arguments.}
+}
 \value{
 An object of class \code{"NRtest"} containing both required and optional components depending on the specifics of the hypothesis test,
 shown as follows:
