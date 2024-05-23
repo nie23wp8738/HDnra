@@ -2,6 +2,7 @@
 #' Normal-reference-test with two-cumulant (2-c) matched χ^2-approximation for GLHT problem proposed Zhang et al. (2017)
 #' @description
 #' Zhang et al. (2017)'s test for general linear hypothesis testing (GLHT) problem for high-dimensional data with assuming that underlying covariance matrices are the same.
+
 #' @usage ZGZ2017.GLHT.2cNRT(Y,G,n,p)
 #' @param Y A list of \eqn{k} data matrices.  The \eqn{i}th element represents the data matrix (\eqn{n_i\times p}) from the \eqn{i}th population with each row representing a \eqn{p}-dimensional observation.
 #' @param G A known full-rank coefficient matrix (\eqn{q\times k}) with \eqn{\operatorname{rank}(\boldsymbol{G})<k}.
