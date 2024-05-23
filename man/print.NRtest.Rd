@@ -5,7 +5,7 @@
 \title{Print Method for S3 Class "NRtest"}
 \usage{
 ## S3 method for class \pkg{NRtest}
-print(x, ...)
+print.NRtest(x, ...)
 }
 \arguments{
 \item{x}{an \pkg{NRtest} object.}
