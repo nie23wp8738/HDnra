@@ -22,12 +22,12 @@
 #' library(HDNRA)
 #' data(corneal)
 #' dim(corneal)
-#' group1 <- as.matrix(corneal[1:43, ])
+#' group1 <- as.matrix(corneal[1:43, ]) ## normal group
 #' dim(group1)
-#' group2 <- as.matrix(corneal[44:57, ])
+#' group2 <- as.matrix(corneal[44:57, ]) ## unilateral suspect group
 #' dim(group2)
-#' group3 <- as.matrix(corneal[58:78, ])
+#' group3 <- as.matrix(corneal[58:78, ]) ## suspect map group
 #' dim(group3)
-#' group4 <- as.matrix(corneal[79:150, ])
+#' group4 <- as.matrix(corneal[79:150, ]) ## clinical keratoconus group
 #' dim(group4)
 NULL
