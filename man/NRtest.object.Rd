@@ -96,3 +96,4 @@ NRtest.obj2 <- NRtest.object(
 print(NRtest.obj2)
 
 }
+\concept{object}
