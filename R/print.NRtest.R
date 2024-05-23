@@ -8,7 +8,7 @@
 #'
 #' @usage
 #' ## S3 method for class \pkg{NRtest}
-#' print(x, ...)
+#' print.NRtest(x, ...)
 #'
 #' @param x an \pkg{NRtest} object.
 #' @param ... further arguments passed to or from other methods.
