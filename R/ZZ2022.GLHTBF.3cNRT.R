@@ -2,6 +2,7 @@
 #' Normal-reference-test with three-cumulant (3-c) matched χ^2-approximation for GLHT problem under heteroscedasticity proposed by Zhang and Zhu (2022)
 #' @description
 #' Zhang and Zhu (2022)'s test for general linear hypothesis testing (GLHT) problem for high-dimensional data under heteroscedasticity.
+
 #' @usage ZZ2022.GLHTBF.3cNRT(Y,G,n,p)
 #' @param Y A list of \eqn{k} data matrices.  The \eqn{i}th element represents the data matrix (\eqn{n_i\times p}) from the \eqn{i}th population with each row representing a \eqn{p}-dimensional observation.
 #' @param G A known full-rank coefficient matrix (\eqn{q\times k}) with \eqn{\operatorname{rank}(\boldsymbol{G})< k}.
