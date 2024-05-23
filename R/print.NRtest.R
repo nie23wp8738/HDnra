@@ -25,6 +25,7 @@
 #' @author
 #' Pengfei Wang \email{nie23.wp8738@e.ntu.edu.sg}
 
+#' @concept object
 #' @export
 
 print.NRtest <- function(x, ...) {
