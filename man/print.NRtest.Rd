@@ -5,7 +5,7 @@
 \title{Print Method for S3 Class "NRtest"}
 \usage{
 ## S3 method for class \pkg{NRtest}
-print.NRtest(x, ...)
+\method{print}{NRtest}(x, ...)
 }
 \arguments{
 \item{x}{an \pkg{NRtest} object.}
@@ -28,6 +28,9 @@ contents, making it easier to understand the results of the analysis.
 Invisibly returns the input \code{x}.
 }
 
+\seealso{
+\code{\link{NRtest.object}}
+}
 \author{
 Pengfei Wang \email{nie23.wp8738@e.ntu.edu.sg}
 }
