@@ -18,26 +18,26 @@ navbar:
 
 reference:
 
-  - title: "[0] Data Sets"
+  - title: "Data Sets"
     contents:
       - has_concept("data")
 
-  - title: "[1] S3 class 'NRtest'"
+  - title: "S3 class 'NRtest'"
     contents:
       - has_concept("object")
 
-  - title: "[2] Normal-refernece Tests for Two-sample Problem"
+  - title: "Normal-refernece Tests for Two-sample Problem"
     contents:
       - has_concept("nrats")
 
-  - title: "[3] Normal-refernece Tests for GLHT Problem"
+  - title: "Normal-refernece Tests for GLHT Problem"
     contents:
       - has_concept("nraglht")
 
-  - title: "[4] Some Existing Tests for Two-sample Problem"
+  - title: "Some Existing Tests for Two-sample Problem"
     contents:
       - has_concept("ts")
 
-  - title: "[5] Some Existing Tests for GLHT Problem"
+  - title: "Some Existing Tests for GLHT Problem"
     contents:
       - has_concept("glht")
