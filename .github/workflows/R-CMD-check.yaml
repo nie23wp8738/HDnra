@@ -80,8 +80,12 @@ jobs:
           where gcc
           where g++
 
-      - name: Install RcppArmadillo separately
-        run: Rscript -e "install.packages('RcppArmadillo')"
+      - name: Install pak package
+        run: Rscript -e "install.packages('pak')"
+
+      - name: Install RcppArmadillo manually for R 3.6
+        if: matrix.config.r == '3.6'
+        run: Rscript -e "install.packages('remotes'); remotes::install_version('RcppArmadillo', version = '0.9.900.3.0')"
 
       - name: Set up R dependencies
         uses: r-lib/actions/setup-r-dependencies@v2
@@ -99,7 +103,6 @@ jobs:
         with:
           name: R-CMD-check-logs
           path: check
-
 
 
 
