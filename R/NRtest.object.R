@@ -29,21 +29,21 @@
 #' @section Required Components:
 #' These components must be present in every \code{"NRtest"} object:
 #' \describe{
-#'   \item{\code{statistic}}{numeric scalar containing the value of the test statistic, with a \code{names} attribute indicating the name of the test statistic.}
-#'   \item{\code{p.value}}{numeric scalar containing the p-value for the test.}
-#'   \item{\code{null.value}}{character string indicating the null hypothesis.}
-#'   \item{\code{alternative}}{character string indicating the alternative hypothesis.}
-#'   \item{\code{method}}{character string giving the name of the test.}
+#'   \item{\code{statistic}}{}
+#'   \item{\code{p.value}}{}
+#'   \item{\code{null.value}}
+#'   \item{\code{alternative}}
+#'   \item{\code{method}}
 #' }
 #'
 #' @section Optional Components:
 #' These components are included depending on the specifics of the hypothesis test performed:
 #' \describe{
-#'   \item{\code{parameter}}{numeric vector containing the estimated approximation parameter(s) associated with the approximation method.  This vector has a \code{names} attribute describing its element(s).}
-#'   \item{\code{sample.size}}{numeric vector containing the number of observations in each group used for the hypothesis test.}
-#'   \item{\code{sample.dimension}}{numeric scalar containing the dimension of the dataset used for the hypothesis test.}
-#'   \item{\code{estimation.method}}{character string giving the name of approximation approach used to approximate the null distribution of the test statstic.}
-#'   \item{\code{data.name}}{character string describing the data set used in the hypothesis test.}
+#'   \item{\code{parameter}}
+#'   \item{\code{sample.size}}
+#'   \item{\code{sample.dimension}}
+#'   \item{\code{estimation.method}}
+#'   \item{\code{data.name}}
 #' }
 #'
 
