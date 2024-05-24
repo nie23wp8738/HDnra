@@ -24,7 +24,9 @@ jobs:
         config:
           - {os: macos-latest,   r: 'release'}
           - {os: windows-latest, r: 'release'}
+          # Use 3.6 to trigger usage of RTools35
           - {os: windows-latest, r: '3.6'}
+          # use 4.1 to check with rtools40's older compiler
           - {os: windows-latest, r: '4.1'}
           - {os: ubuntu-latest,   r: 'devel', http-user-agent: 'release'}
           - {os: ubuntu-latest,   r: 'release'}
@@ -72,8 +74,9 @@ jobs:
       - name: Download and extract Armadillo on Windows
         if: runner.os == 'Windows'
         run: |
-          curl -L -o armadillo.zip https://sourceforge.net/projects/arma/files/armadillo-10.6.2.zip/download
-          7z x armadillo.zip -oarmadillo
+          curl -L -o armadillo.tar.xz https://sourceforge.net/projects/arma/files/armadillo-10.6.2.tar.xz/download
+          7z x armadillo.tar.xz -oarmadillo
+          7z x armadillo/armadillo-10.6.2.tar -oarmadillo
           cd armadillo/armadillo-10.6.2
           mkdir build
           cd build
@@ -92,4 +95,3 @@ jobs:
       - name: Show check log if failed
         if: failure()
         run: cat *.Rcheck/00check.log
-
