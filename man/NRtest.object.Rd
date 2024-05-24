@@ -61,9 +61,9 @@ These components must be present in every \code{"NRtest"} object:
 \describe{
 \item{\code{statistic}}{}
 \item{\code{p.value}}{}
-\item{\code{null.value}}
-\item{\code{alternative}}
-\item{\code{method}}
+\item{\code{null.value}}{}
+\item{\code{alternative}}{}
+\item{\code{method}}{}
 }
 }
 
@@ -71,11 +71,11 @@ These components must be present in every \code{"NRtest"} object:
 
 These components are included depending on the specifics of the hypothesis test performed:
 \describe{
-\item{\code{parameter}}
-\item{\code{sample.size}}
-\item{\code{sample.dimension}}
-\item{\code{estimation.method}}
-\item{\code{data.name}}
+\item{\code{parameter}}{}
+\item{\code{sample.size}}{}
+\item{\code{sample.dimension}}{}
+\item{\code{estimation.method}}{}
+\item{\code{data.name}}{}
 }
 }
 
