@@ -59,11 +59,11 @@ to the needs of the \pkg{HDNRA} package.
 
 These components must be present in every \code{"NRtest"} object:
 \describe{
-\item{\code{statistic}}{Must be present.}
-\item{\code{p.value}}{Must be present.}
-\item{\code{null.value}}{Must be present.}
-\item{\code{alternative}}{Must be present.}
-\item{\code{method}}{Must be present.}
+\item{\code{statistic}}{Must e present.}
+\item{\code{p.value}}{Must e present.}
+\item{\code{null.value}}{Must e present.}
+\item{\code{alternative}}{Must e present.}
+\item{\code{method}}{Must e present.}
 }
 }
 
