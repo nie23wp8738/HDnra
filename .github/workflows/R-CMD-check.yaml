@@ -70,6 +70,15 @@ jobs:
         run: |
           choco install rtools
           choco install mingw
+          echo "Rtools and MinGW installed"
+
+      - name: Debugging information (Windows)
+        if: runner.os == 'Windows'
+        run: |
+          gcc --version
+          g++ --version
+          where gcc
+          where g++
 
       - name: Install RcppArmadillo separately
         run: Rscript -e "install.packages('RcppArmadillo')"
@@ -90,6 +99,7 @@ jobs:
         with:
           name: R-CMD-check-logs
           path: check
+
 
 
 
