@@ -72,8 +72,7 @@ jobs:
           choco install mingw
 
       - name: Install RcppArmadillo separately
-        run: |
-          Rscript -e 'install.packages("RcppArmadillo")'
+        run: Rscript -e "install.packages('RcppArmadillo')"
 
       - name: Set up R dependencies
         uses: r-lib/actions/setup-r-dependencies@v2
