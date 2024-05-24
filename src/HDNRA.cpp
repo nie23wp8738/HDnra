@@ -1104,14 +1104,19 @@ arma::vec glhtbf_zz2022_cpp(const Rcpp::List& Y, const arma::mat& tG, const arma
 // Test proposed by Zhang and Zhu (2022)
 // [[Rcpp::export]]
 arma::vec glht_zzz2022_cpp(const Rcpp::List& Y, const arma::mat& X, const arma::mat& C, const arma::vec& n, int p) {
+
   int k = Y.size(); // number of classes
   int q = arma::rank(C);
   int ss = arma::sum(n);
 
+
+
   // Precompute necessary values
+
   arma::vec index = arma::cumsum(n);
   arma::vec ind = arma::zeros(k + 1);
   std::copy(index.begin(), index.end(), ind.begin() + 1);
+
 
   arma::mat Ymat(ss, p, arma::fill::zeros);
 
@@ -1121,65 +1126,48 @@ arma::vec glht_zzz2022_cpp(const Rcpp::List& Y, const arma::mat& X, const arma::
     Ymat.rows(ind[i], ind[i + 1] - 1) = yi;
   }
 
-  // Calculate XtXinv using Cholesky decomposition
+
+
+  // Calculate XtXinv only once
   arma::mat XtX = X.t() * X;
+  arma::mat XtXinv = arma::inv_sympd(XtX);
 
-  arma::mat XtXinv;
-#pragma omp parallel
-{
-#pragma omp single
-  XtXinv = cholesky_inverse(XtX);
+  // Precompute XtXinv * C.t() and C * XtXinv * C.t() * inv
+  arma::mat XtXinvC = XtXinv * C.t();
+  arma::mat invC_XtXinvC = arma::inv_sympd(C * XtXinvC);
+
+  // Compute H matrix
+  arma::mat H = X * XtXinvC * invC_XtXinvC * XtXinvC.t() * X.t();
+
+  // Calculate Sh and Se
+  arma::mat Ymat_t = Ymat.t();
+  arma::mat Sh = Ymat_t * H * Ymat;
+  arma::mat P = X * XtXinv * X.t();
+  arma::mat Se = Ymat_t * (arma::eye(ss, ss) - P) * Ymat;
+
+  // Calculate Sigma and its inverse diagonal
+  arma::mat Sigma = Se / (ss - k);
+  arma::vec Sigma_diag = Sigma.diag();
+  arma::vec invSigma_diag = 1 / Sigma_diag;
+  arma::mat invD = arma::diagmat(invSigma_diag);
+
+
+  // Calculate Tnp
+  double Tnp = arma::trace(Sh.each_col() % invSigma_diag) / (p * q);
+
+
+  // Calculate trRhat2 and trR2
+  arma::mat invDSigma = invD * Sigma;
+  double trRhat2 = arma::trace(invDSigma * invDSigma);
+  double trR2 = (ss - k) * (ss - k) * (trRhat2 - p * p / (ss - k)) / ((ss - k - 1) * (ss - k + 2));
+  double hatd = p * p * q / trR2;
+
+
+  // Return the results
+  arma::vec values(2);
+  values(0) = Tnp;
+  values(1) = hatd;
+  return values;
 }
 
-// Precompute XtXinv * C.t() and C * XtXinv * C.t() * inv using Cholesky decomposition
-arma::mat XtXinvC = XtXinv * C.t();
-arma::mat invC_XtXinvC;
-#pragma omp parallel
-{
-#pragma omp single
-  invC_XtXinvC = cholesky_inverse(C * XtXinvC);
-}
 
-// Compute H matrix
-arma::mat H = X * XtXinvC * invC_XtXinvC * XtXinvC.t() * X.t();
-
-// Calculate Sh and Se
-arma::mat Ymat_t = Ymat.t();
-arma::mat Sh, P, Se;
-#pragma omp parallel sections
-{
-#pragma omp section
-{
-  Sh = Ymat_t * H * Ymat;
-}
-#pragma omp section
-{
-  P = X * XtXinv * X.t();
-}
-#pragma omp section
-{
-  Se = Ymat_t * (arma::eye(ss, ss) - P) * Ymat;
-}
-}
-
-// Calculate Sigma and its inverse diagonal
-arma::mat Sigma = Se / (ss - k);
-arma::vec Sigma_diag = Sigma.diag();
-arma::vec invSigma_diag = 1 / Sigma_diag;
-arma::mat invD = arma::diagmat(invSigma_diag);
-
-// Calculate Tnp
-double Tnp = arma::trace(Sh.each_col() % invSigma_diag) / (p * q);
-
-// Calculate trRhat2 and trR2
-arma::mat invDSigma = invD * Sigma;
-double trRhat2 = arma::trace(invDSigma * invDSigma);
-double trR2 = (ss - k) * (ss - k) * (trRhat2 - p * p / (ss - k)) / ((ss - k - 1) * (ss - k + 2));
-double hatd = p * p * q / trR2;
-
-// Return the results
-arma::vec values(2);
-values(0) = Tnp;
-values(1) = hatd;
-return values;
-}
