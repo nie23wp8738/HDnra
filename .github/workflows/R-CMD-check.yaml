@@ -56,7 +56,16 @@ jobs:
           http-user-agent: ${{ matrix.config.http-user-agent }}
           use-public-rspm: true
 
-      - name: Install RcppArmadillo
+      - name: Install dependencies
+        run: |
+          install.packages('Rcpp', repos='https://cran.r-project.org')
+          install.packages('RcppArmadillo', repos='https://cran.r-project.org')
+        shell: Rscript {0}
+
+      - name: Show session info
+        run: Rscript -e 'sessionInfo()'
+
+      - name: Install RcppArmadillo separately
         if: runner.os == 'Windows' && matrix.config.r == '3.6'
         run: Rscript -e "install.packages('RcppArmadillo', repos='https://cran.r-project.org')"
 
@@ -69,6 +78,7 @@ jobs:
       - uses: r-lib/actions/check-r-package@v2
         with:
           upload-snapshots: true
+
 
 
 
