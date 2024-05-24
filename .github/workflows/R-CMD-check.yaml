@@ -22,16 +22,18 @@ jobs:
       fail-fast: false
       matrix:
         config:
-          - {os: macos-latest, r: 'release'}
+          - {os: macos-latest,   r: 'release'}
           - {os: windows-latest, r: 'release'}
+          # Use 3.6 to trigger usage of RTools35
           - {os: windows-latest, r: '3.6'}
+          # use 4.1 to check with rtools40's older compiler
           - {os: windows-latest, r: '4.1'}
-          - {os: ubuntu-latest, r: 'devel', http-user-agent: 'release'}
-          - {os: ubuntu-latest, r: 'release'}
-          - {os: ubuntu-latest, r: 'oldrel-1'}
-          - {os: ubuntu-latest, r: 'oldrel-2'}
-          - {os: ubuntu-latest, r: 'oldrel-3'}
-          - {os: ubuntu-latest, r: 'oldrel-4'}
+          - {os: ubuntu-latest,   r: 'devel', http-user-agent: 'release'}
+          - {os: ubuntu-latest,   r: 'release'}
+          - {os: ubuntu-latest,   r: 'oldrel-1'}
+          - {os: ubuntu-latest,   r: 'oldrel-2'}
+          - {os: ubuntu-latest,   r: 'oldrel-3'}
+          - {os: ubuntu-latest,   r: 'oldrel-4'}
 
     env:
       GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
@@ -49,30 +51,30 @@ jobs:
           use-public-rspm: true
 
       - name: Install system dependencies on Ubuntu
-        if: matrix.config.os == 'ubuntu-latest'
+        if: runner.os == 'Linux'
         run: |
           sudo apt-get update
           sudo apt-get install -y libcurl4-openssl-dev libxml2-dev libssl-dev libarmadillo-dev
 
       - name: Install system dependencies on macOS
-        if: matrix.config.os == 'macos-latest'
+        if: runner.os == 'macOS'
         run: |
           brew install armadillo
 
       - name: Install RTools on Windows
-        if: matrix.config.os == 'windows-latest'
+        if: runner.os == 'Windows'
         run: |
           choco install rtools -y
 
       - name: Install 7zip on Windows
-        if: matrix.config.os == 'windows-latest'
+        if: runner.os == 'Windows'
         run: |
           choco install 7zip -y
 
       - name: Download and extract Armadillo on Windows
-        if: matrix.config.os == 'windows-latest'
+        if: runner.os == 'Windows'
         run: |
-          curl -L -o armadillo.zip https://sourceforge.net/projects/arma/files/armadillo-10.6.2.zip/download
+          curl -L -o armadillo.zip http://sourceforge.net/projects/arma/files/armadillo-10.6.2.zip/download
           7z x armadillo.zip -oarmadillo
           cd armadillo/armadillo-10.6.2
           mkdir build
@@ -92,4 +94,5 @@ jobs:
       - name: Show check log if failed
         if: failure()
         run: cat *.Rcheck/00check.log
+
 
