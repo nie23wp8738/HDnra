@@ -697,100 +697,37 @@ double glht_sf2006_cpp(List Y, const arma::mat &X, const arma::mat &C, const arm
 
 // Test proposed by Yamada and Srivastava (2012)
 // [[Rcpp::export]]
-arma::vec glht_ys2012_cpp(const Rcpp::List& Y, const arma::mat& X, const arma::mat& C, const arma::vec& n, int p) {
-  int k = Y.size(); // number of classes
-  int q = arma::rank(C); // Rank of C
-  int ss = arma::sum(n);
-
-  // Precompute necessary values
-  arma::vec index = arma::cumsum(n);
-  arma::vec ind = arma::zeros(k + 1);
-  std::copy(index.begin(), index.end(), ind.begin() + 1);
-
-  arma::mat Ymat(ss, p, arma::fill::zeros);
-
-#pragma omp parallel for
-  for (int i = 0; i < k; i++) {
+arma::vec glht_ys2012_cpp(List Y, const arma::mat & X, const arma::mat & C, const arma::vec & n, int p){
+  int k = Y.length(); //number of classes
+  int q = rank(C);
+  int ss = sum(n);
+  arma::mat Ymat(ss,p);
+  arma::vec index = cumsum(n);
+  arma::vec ind = zeros(k + 1);
+  std::copy(index.begin(), index.end(), ind.begin()+1);
+  for(int i=0;i<k;i++){
     arma::mat yi = Y[i];
-    Ymat.rows(ind[i], ind[i + 1] - 1) = yi;
+    Ymat.rows(ind[i],ind[i+1]-1) = yi;
   }
 
-  // Calculate XtXinv using Cholesky decomposition
-  arma::mat XtX = X.t() * X;
+  arma::mat XtXinv = inv_sympd(X.t()*X);
+  arma::mat H = X*XtXinv*C.t()*inv_sympd(C*XtXinv*C.t())*C*XtXinv*X.t();
+  arma::mat Sh = Ymat.t()*H*Ymat;
+  arma::mat P = X*XtXinv*X.t();
+  arma::mat I(ss,ss);
+  I.eye();
+  arma::mat Se = Ymat.t()*(I-P)*Ymat;
+  arma::mat Sigma = Se/(ss-k);
+  arma::mat invD = diagmat(1/Sigma.diag());
+  double Tnp = trace(Sh*invD)/p/q;
+  double trRhat2 = trace(invD*Sigma*invD*Sigma);
+  double cpn = 1+trRhat2/sqrt(pow(p,3));
+  double TYS = (p*q*Tnp - (ss-k)*p*q/(ss-k-2))/sqrt(2*q*(trRhat2-p*p/(ss-k))*cpn);
+  arma::vec values(2);
+  values(0) = TYS;
+  values(1) = cpn;
+  return values;
 
-  arma::mat XtXinv;
-#pragma omp parallel
-{
-#pragma omp single
-  XtXinv = cholesky_inverse(XtX);
-}
-
-// Precompute XtXinv * C.t() and C * XtXinv * C.t() * inv using Cholesky decomposition
-arma::mat XtXinvC = XtXinv * C.t();
-
-arma::mat invC_XtXinvC;
-#pragma omp parallel
-{
-#pragma omp single
-  invC_XtXinvC = cholesky_inverse(C * XtXinvC);
-}
-
-// Compute H matrix
-arma::mat H;
-#pragma omp parallel
-{
-#pragma omp single
-  H = X * XtXinvC * invC_XtXinvC * XtXinvC.t() * X.t();
-}
-
-// Calculate Sh and Se
-arma::mat Ymat_t = Ymat.t();
-arma::mat Sh, P, Se;
-
-#pragma omp parallel sections
-{
-#pragma omp section
-{
-  Sh = Ymat_t * H * Ymat;
-}
-#pragma omp section
-{
-  P = X * XtXinv * X.t();
-}
-#pragma omp section
-{
-  Se = Ymat_t * (arma::eye(ss, ss) - P) * Ymat;
-}
-}
-
-// Calculate Sigma and its inverse diagonal
-arma::mat Sigma = Se / (ss - k);
-arma::vec Sigma_diag = Sigma.diag();
-arma::vec invSigma_diag = 1 / Sigma_diag;
-arma::mat invD = arma::diagmat(invSigma_diag);
-
-// Calculate Tnp
-double Tnp = arma::trace(Sh.each_col() % invSigma_diag) / (p * q);
-
-// Calculate trRhat2
-double trRhat2;
-#pragma omp parallel
-{
-#pragma omp single
-  trRhat2 = arma::trace(invD * Sigma * invD * Sigma);
-}
-
-// Calculate cpn
-double cpn = 1 + trRhat2 / std::sqrt(std::pow(p, 3));
-
-// Calculate TYS
-double TYS = (p * q * Tnp - (ss - k) * p * q / (ss - k - 2)) / std::sqrt(2 * q * (trRhat2 - p * p / (ss - k)) * cpn);
-
-// Return the results
-arma::vec values(2);
-values(0) = TYS;
-values(1) = cpn;
-return values;
 }
 
 // Test proposed by Zhou et al. (2017)
