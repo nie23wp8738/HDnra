@@ -23,13 +23,11 @@ jobs:
       matrix:
         config:
           - {os: macos-latest,   r: 'release'}
-
           - {os: windows-latest, r: 'release'}
           # Use 3.6 to trigger usage of RTools35
           - {os: windows-latest, r: '3.6'}
           # use 4.1 to check with rtools40's older compiler
           - {os: windows-latest, r: '4.1'}
-
           - {os: ubuntu-latest,   r: 'devel', http-user-agent: 'release'}
           - {os: ubuntu-latest,   r: 'release'}
           - {os: ubuntu-latest,   r: 'oldrel-1'}
@@ -52,11 +50,32 @@ jobs:
           http-user-agent: ${{ matrix.config.http-user-agent }}
           use-public-rspm: true
 
+      - name: Install system dependencies on Ubuntu
+        if: runner.os == 'Linux'
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y libcurl4-openssl-dev libxml2-dev libssl-dev libarmadillo-dev
+
+      - name: Install system dependencies on macOS
+        if: runner.os == 'macOS'
+        run: |
+          brew install armadillo
+
+      - name: Install system dependencies on Windows
+        if: runner.os == 'Windows'
+        run: |
+          choco install rtools
+          choco install armadillo
+
       - uses: r-lib/actions/setup-r-dependencies@v2
         with:
           extra-packages: any::rcmdcheck
-          needs: check
 
       - uses: r-lib/actions/check-r-package@v2
         with:
           upload-snapshots: true
+
+      - name: Show check log if failed
+        if: failure()
+        run: cat *.Rcheck/00check.log
+
