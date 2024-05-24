@@ -23,13 +23,9 @@ jobs:
       matrix:
         config:
           - {os: macos-latest,   r: 'release'}
-
           - {os: windows-latest, r: 'release'}
-          # Use 3.6 to trigger usage of RTools35
           - {os: windows-latest, r: '3.6'}
-          # use 4.1 to check with rtools40's older compiler
           - {os: windows-latest, r: '4.1'}
-
           - {os: ubuntu-latest,   r: 'devel', http-user-agent: 'release'}
           - {os: ubuntu-latest,   r: 'release'}
           - {os: ubuntu-latest,   r: 'oldrel-1'}
@@ -55,16 +51,11 @@ jobs:
           http-user-agent: ${{ matrix.config.http-user-agent }}
           use-public-rspm: true
 
-      - name: Set up R dependencies
-        uses: r-lib/actions/setup-r-dependencies@v2
-        with:
-          extra-packages: any::rcmdcheck
-
       - name: Install system dependencies (Ubuntu)
         if: runner.os == 'Linux'
         run: |
           sudo apt-get update
-          sudo apt-get install -y libcurl4-openssl-dev libssl-dev libxml2-dev
+          sudo apt-get install -y libcurl4-openssl-dev libssl-dev libxml2-dev g++ build-essential
 
       - name: Install system dependencies (macOS)
         if: runner.os == 'macOS'
@@ -72,11 +63,21 @@ jobs:
           brew install pkg-config
           brew install openssl
           brew install libxml2
+          brew install gcc
 
       - name: Install system dependencies (Windows)
         if: runner.os == 'Windows'
         run: |
           choco install rtools
+          choco install mingw
+
+      - name: Install RcppArmadillo separately
+        run: R -e 'install.packages("RcppArmadillo")'
+
+      - name: Set up R dependencies
+        uses: r-lib/actions/setup-r-dependencies@v2
+        with:
+          extra-packages: any::rcmdcheck
 
       - name: Check R package
         uses: r-lib/actions/check-r-package@v2
