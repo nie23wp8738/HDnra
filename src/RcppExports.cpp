@@ -187,12 +187,12 @@ BEGIN_RCPP
 END_RCPP
 }
 // glht_ys2012_cpp
-arma::vec glht_ys2012_cpp(const Rcpp::List& Y, const arma::mat& X, const arma::mat& C, const arma::vec& n, int p);
+arma::vec glht_ys2012_cpp(List Y, const arma::mat& X, const arma::mat& C, const arma::vec& n, int p);
 RcppExport SEXP _HDNRA_glht_ys2012_cpp(SEXP YSEXP, SEXP XSEXP, SEXP CSEXP, SEXP nSEXP, SEXP pSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
-    Rcpp::traits::input_parameter< const Rcpp::List& >::type Y(YSEXP);
+    Rcpp::traits::input_parameter< List >::type Y(YSEXP);
     Rcpp::traits::input_parameter< const arma::mat& >::type X(XSEXP);
     Rcpp::traits::input_parameter< const arma::mat& >::type C(CSEXP);
     Rcpp::traits::input_parameter< const arma::vec& >::type n(nSEXP);
