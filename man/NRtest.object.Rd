@@ -59,11 +59,11 @@ to the needs of the \pkg{HDNRA} package.
 
 These components must be present in every \code{"NRtest"} object:
 \describe{
-\item{\code{statistic}}{}
-\item{\code{p.value}}{}
-\item{\code{null.value}}{}
-\item{\code{alternative}}{}
-\item{\code{method}}{}
+\item{\code{statistic}}{Must be present.}
+\item{\code{p.value}}{Must be present.}
+\item{\code{null.value}}{Must be present.}
+\item{\code{alternative}}{Must be present.}
+\item{\code{method}}{Must be present.}
 }
 }
 
@@ -71,11 +71,11 @@ These components must be present in every \code{"NRtest"} object:
 
 These components are included depending on the specifics of the hypothesis test performed:
 \describe{
-\item{\code{parameter}}{}
-\item{\code{sample.size}}{}
-\item{\code{sample.dimension}}{}
-\item{\code{estimation.method}}{}
-\item{\code{data.name}}{}
+\item{\code{parameter}}{May be present.}
+\item{\code{sample.size}}{May be present.}
+\item{\code{sample.dimension}}{May be present.}
+\item{\code{estimation.method}}{May be present.}
+\item{\code{data.name}}{May be present.}
 }
 }
 
