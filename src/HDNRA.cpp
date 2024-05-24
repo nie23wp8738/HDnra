@@ -1104,19 +1104,14 @@ arma::vec glhtbf_zz2022_cpp(const Rcpp::List& Y, const arma::mat& tG, const arma
 // Test proposed by Zhang and Zhu (2022)
 // [[Rcpp::export]]
 arma::vec glht_zzz2022_cpp(const Rcpp::List& Y, const arma::mat& X, const arma::mat& C, const arma::vec& n, int p) {
-
   int k = Y.size(); // number of classes
-  int q = arma::rank(C);
+  int q = C.n_rows; // rank of C should be its row number
   int ss = arma::sum(n);
 
-
-
   // Precompute necessary values
-
   arma::vec index = arma::cumsum(n);
   arma::vec ind = arma::zeros(k + 1);
   std::copy(index.begin(), index.end(), ind.begin() + 1);
-
 
   arma::mat Ymat(ss, p, arma::fill::zeros);
 
@@ -1126,15 +1121,13 @@ arma::vec glht_zzz2022_cpp(const Rcpp::List& Y, const arma::mat& X, const arma::
     Ymat.rows(ind[i], ind[i + 1] - 1) = yi;
   }
 
-
-
-  // Calculate XtXinv only once
+  // Calculate XtXinv using Cholesky decomposition
   arma::mat XtX = X.t() * X;
-  arma::mat XtXinv = arma::inv_sympd(XtX);
+  arma::mat XtXinv = cholesky_inverse(XtX);
 
   // Precompute XtXinv * C.t() and C * XtXinv * C.t() * inv
   arma::mat XtXinvC = XtXinv * C.t();
-  arma::mat invC_XtXinvC = arma::inv_sympd(C * XtXinvC);
+  arma::mat invC_XtXinvC = cholesky_inverse(C * XtXinvC);
 
   // Compute H matrix
   arma::mat H = X * XtXinvC * invC_XtXinvC * XtXinvC.t() * X.t();
@@ -1151,10 +1144,8 @@ arma::vec glht_zzz2022_cpp(const Rcpp::List& Y, const arma::mat& X, const arma::
   arma::vec invSigma_diag = 1 / Sigma_diag;
   arma::mat invD = arma::diagmat(invSigma_diag);
 
-
   // Calculate Tnp
   double Tnp = arma::trace(Sh.each_col() % invSigma_diag) / (p * q);
-
 
   // Calculate trRhat2 and trR2
   arma::mat invDSigma = invD * Sigma;
@@ -1162,12 +1153,12 @@ arma::vec glht_zzz2022_cpp(const Rcpp::List& Y, const arma::mat& X, const arma::
   double trR2 = (ss - k) * (ss - k) * (trRhat2 - p * p / (ss - k)) / ((ss - k - 1) * (ss - k + 2));
   double hatd = p * p * q / trR2;
 
-
   // Return the results
   arma::vec values(2);
   values(0) = Tnp;
   values(1) = hatd;
   return values;
 }
+
 
 
