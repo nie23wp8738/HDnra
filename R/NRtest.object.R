@@ -31,19 +31,19 @@
 #' \describe{
 #'   \item{\code{statistic}}{}
 #'   \item{\code{p.value}}{}
-#'   \item{\code{null.value}}
-#'   \item{\code{alternative}}
-#'   \item{\code{method}}
+#'   \item{\code{null.value}}{}
+#'   \item{\code{alternative}}{}
+#'   \item{\code{method}}{}
 #' }
 #'
 #' @section Optional Components:
 #' These components are included depending on the specifics of the hypothesis test performed:
 #' \describe{
-#'   \item{\code{parameter}}
-#'   \item{\code{sample.size}}
-#'   \item{\code{sample.dimension}}
-#'   \item{\code{estimation.method}}
-#'   \item{\code{data.name}}
+#'   \item{\code{parameter}}{}
+#'   \item{\code{sample.size}}{}
+#'   \item{\code{sample.dimension}}{}
+#'   \item{\code{estimation.method}}{}
+#'   \item{\code{data.name}}{}
 #' }
 #'
 
