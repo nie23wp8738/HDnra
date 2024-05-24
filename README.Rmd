@@ -23,15 +23,47 @@ knitr::opts_chunk$set(
 
 The R package **HDNRA** includes the latest methods based on normal-reference approach to test the equality of the mean vectors of high-dimensional samples with possibly different covariance matrices. `HDNRA` is also used to demonstrate the implementation of these tests, catering not only to the two-sample problem, but also to the general linear hypothesis testing (GLHT) problem. This package provides easy and user-friendly access to these tests. Both coded in C++ to allow for reasonable execution time using [Rcpp](https://github.com/RcppCore/Rcpp). Besides [Rcpp](https://github.com/RcppCore/Rcpp), the package has no strict dependencies in order to provide a stable self-contained toolbox that invites re-use.
 
-There are two real data sets in `HDNRA`: [COVID19](https://nie23wp8738.github.io/HDNRA/reference/COVID19.html) and [corneal](https://nie23wp8738.github.io/HDNRA/reference/corneal.html).
+There are: 
 
-Seven normal-reference tests for the two-sample problem: [ZGZC2020.TS.2cNRT](https://nie23wp8738.github.io/HDNRA/reference/ZGZC2020.TS.2cNRT.html), [ZZ2022.TS.3cNRT](https://nie23wp8738.github.io/HDNRA/reference/ZZ2022.TS.3cNRT.html), [ZZZ2020.TS.2cNRT](https://nie23wp8738.github.io/HDNRA/reference/ZZZ2020.TS.2cNRT.html), [ZWZ2023.TSBF.2cNRT](https://nie23wp8738.github.io/HDNRA/reference/ZWZ2023.TSBF.2cNRT.html), [ZZ2022.TSBF.3cNRT](https://nie23wp8738.github.io/HDNRA/reference/ZZ2022.TSBF.3cNRT.html), [ZZGZ2021.TSBF.2cNRT](https://nie23wp8738.github.io/HDNRA/reference/ZZGZ2021.TSBF.2cNRT.html), [ZZZ2023.TSBF.2cNRT](https://nie23wp8738.github.io/HDNRA/reference/ZZZ2023.TSBF.2cNRT.html).
+Two real data sets in `HDNRA`
 
-Five normal-reference tests for the GLHT problem in `HDNRA`: [ZGZ2017.GLHT.2cNRT](https://nie23wp8738.github.io/HDNRA/reference/ZGZ2017.GLHT.2cNRT.html), [ZZ2022.GLHT.3cNRT](https://nie23wp8738.github.io/HDNRA/reference/ZZ2022.GLHT.3cNRT.html), [ZZZ2022.GLHT.2cNRT](https://nie23wp8738.github.io/HDNRA/reference/ZZZ2022.GLHT.2cNRT.html), [ZZ2022.GLHTBF.3cNRT](https://nie23wp8738.github.io/HDNRA/reference/ZZ2022.GLHTBF.3cNRT.html), [ZZG2022.GLHTBF.2cNRT](https://nie23wp8738.github.io/HDNRA/reference/ZZG2022.GLHTBF.2cNRT.html).
+- [COVID19](https://nie23wp8738.github.io/HDNRA/reference/COVID19.html)
+- [corneal](https://nie23wp8738.github.io/HDNRA/reference/corneal.html)
 
-Four existing tests for the two-sample problem in `HDNRA`: [BS1996.TS.NART](https://nie23wp8738.github.io/HDNRA/reference/BS1996.TS.NART.html), [SD2008.TS.NABT](https://nie23wp8738.github.io/HDNRA/reference/SD2008.TS.NABT.html), [CQ2010.TSBF.NABT](https://nie23wp8738.github.io/HDNRA/reference/CQ2010.TSBF.NABT.html), [SKK2013.TSBF.NABT](https://nie23wp8738.github.io/HDNRA/reference/SKK2013.TSBF.NABT.html).
 
-Five existing tests for the GLHT problem in `HDNRA`: [FHW2004.GLHT.NABT](https://nie23wp8738.github.io/HDNRA/reference/FHW2004.GLHT.NABT.html), [SF2006.GLHT.NABT](https://nie23wp8738.github.io/HDNRA/reference/SF2006.GLHT.NABT.html), [YS2012.GLHT.NABT](https://nie23wp8738.github.io/HDNRA/reference/YS2012.GLHT.NABT.html), [ZGZ2017.GLHTBF.NABT](https://nie23wp8738.github.io/HDNRA/reference/ZGZ2017.GLHTBF.NABT.html), [S2007.ks.NABT](https://nie23wp8738.github.io/HDNRA/reference/S2007.ks.NABT.html).
+Seven normal-reference tests for the two-sample problem
+
+- [ZGZC2020.TS.2cNRT](https://nie23wp8738.github.io/HDNRA/reference/ZGZC2020.TS.2cNRT.html)
+- [ZZ2022.TS.3cNRT](https://nie23wp8738.github.io/HDNRA/reference/ZZ2022.TS.3cNRT.html)
+- [ZZZ2020.TS.2cNRT](https://nie23wp8738.github.io/HDNRA/reference/ZZZ2020.TS.2cNRT.html)
+- [ZWZ2023.TSBF.2cNRT](https://nie23wp8738.github.io/HDNRA/reference/ZWZ2023.TSBF.2cNRT.html)
+- [ZZ2022.TSBF.3cNRT](https://nie23wp8738.github.io/HDNRA/reference/ZZ2022.TSBF.3cNRT.html)
+- [ZZGZ2021.TSBF.2cNRT](https://nie23wp8738.github.io/HDNRA/reference/ZZGZ2021.TSBF.2cNRT.html)
+- [ZZZ2023.TSBF.2cNRT](https://nie23wp8738.github.io/HDNRA/reference/ZZZ2023.TSBF.2cNRT.html)
+
+Five normal-reference tests for the GLHT problem in `HDNRA`
+
+- [ZGZ2017.GLHT.2cNRT](https://nie23wp8738.github.io/HDNRA/reference/ZGZ2017.GLHT.2cNRT.html)
+- [ZZ2022.GLHT.3cNRT](https://nie23wp8738.github.io/HDNRA/reference/ZZ2022.GLHT.3cNRT.html)
+- [ZZZ2022.GLHT.2cNRT](https://nie23wp8738.github.io/HDNRA/reference/ZZZ2022.GLHT.2cNRT.html)
+- [ZZ2022.GLHTBF.3cNRT](https://nie23wp8738.github.io/HDNRA/reference/ZZ2022.GLHTBF.3cNRT.html)
+- [ZZG2022.GLHTBF.2cNRT](https://nie23wp8738.github.io/HDNRA/reference/ZZG2022.GLHTBF.2cNRT.html)
+
+Four existing tests for the two-sample problem in `HDNRA`
+
+- [BS1996.TS.NART](https://nie23wp8738.github.io/HDNRA/reference/BS1996.TS.NART.html)
+- [SD2008.TS.NABT](https://nie23wp8738.github.io/HDNRA/reference/SD2008.TS.NABT.html)
+- [CQ2010.TSBF.NABT](https://nie23wp8738.github.io/HDNRA/reference/CQ2010.TSBF.NABT.html)
+- [SKK2013.TSBF.NABT](https://nie23wp8738.github.io/HDNRA/reference/SKK2013.TSBF.NABT.html)
+
+Five existing tests for the GLHT problem in `HDNRA`
+
+- [FHW2004.GLHT.NABT](https://nie23wp8738.github.io/HDNRA/reference/FHW2004.GLHT.NABT.html)
+- [SF2006.GLHT.NABT](https://nie23wp8738.github.io/HDNRA/reference/SF2006.GLHT.NABT.html)
+- [YS2012.GLHT.NABT](https://nie23wp8738.github.io/HDNRA/reference/YS2012.GLHT.NABT.html)
+- [ZGZ2017.GLHTBF.NABT](https://nie23wp8738.github.io/HDNRA/reference/ZGZ2017.GLHTBF.NABT.html)
+- [S2007.ks.NABT](https://nie23wp8738.github.io/HDNRA/reference/S2007.ks.NABT.html)
+
 
 ## Installation
 
