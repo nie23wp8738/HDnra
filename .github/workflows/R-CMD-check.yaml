@@ -66,11 +66,11 @@ jobs:
         run: |
           choco install rtools -y
 
-      - name: Install Armadillo on Windows
+      - name: Download and extract Armadillo on Windows
         if: runner.os == 'Windows'
         run: |
           curl -L -o armadillo.zip https://sourceforge.net/projects/arma/files/armadillo-10.6.2.zip/download
-          powershell -c "Expand-Archive armadillo.zip -DestinationPath armadillo-10.6.2"
+          powershell -c "Expand-Archive armadillo.zip -DestinationPath ."
           cd armadillo-10.6.2
           mkdir build
           cd build
@@ -89,4 +89,3 @@ jobs:
       - name: Show check log if failed
         if: failure()
         run: cat *.Rcheck/00check.log
-
