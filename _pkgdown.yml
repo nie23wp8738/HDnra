@@ -1,6 +1,8 @@
 url: ~
 template:
   bootstrap: 5
+  params:
+    extra_css: inst/pkgdown/custom.css
 
 home:
   strip_header: false
@@ -17,27 +19,21 @@ navbar:
       href: https://github.com/nie23wp8738/HDNRA
 
 reference:
-
   - title: "Data Sets"
     contents:
       - has_concept("data")
-
   - title: "S3 class 'NRtest'"
     contents:
       - has_concept("object")
-
   - title: "Normal-refernece Tests for Two-sample Problem"
     contents:
       - has_concept("nrats")
-
   - title: "Normal-refernece Tests for GLHT Problem"
     contents:
       - has_concept("nraglht")
-
   - title: "Some Existing Tests for Two-sample Problem"
     contents:
       - has_concept("ts")
-
   - title: "Some Existing Tests for GLHT Problem"
     contents:
       - has_concept("glht")
