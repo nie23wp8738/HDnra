@@ -20,20 +20,32 @@ navbar:
 
 reference:
   - title: "Data Sets"
+    class: "reference-title"  # Add this line
     contents:
       - has_concept("data")
+        class: "reference-content"  # Add this line
   - title: "S3 class 'NRtest'"
+    class: "reference-title"  # Add this line
     contents:
       - has_concept("object")
-  - title: "Normal-refernece Tests for Two-sample Problem"
+        class: "reference-content"  # Add this line
+  - title: "Normal-reference Tests for Two-sample Problem"
+    class: "reference-title"  # Add this line
     contents:
       - has_concept("nrats")
-  - title: "Normal-refernece Tests for GLHT Problem"
+        class: "reference-content"  # Add this line
+  - title: "Normal-reference Tests for GLHT Problem"
+    class: "reference-title"  # Add this line
     contents:
       - has_concept("nraglht")
+        class: "reference-content"  # Add this line
   - title: "Some Existing Tests for Two-sample Problem"
+    class: "reference-title"  # Add this line
     contents:
       - has_concept("ts")
+        class: "reference-content"  # Add this line
   - title: "Some Existing Tests for GLHT Problem"
+    class: "reference-title"  # Add this line
     contents:
       - has_concept("glht")
+        class: "reference-content"  # Add this line
