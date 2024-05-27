@@ -1,0 +1,28 @@
+/* inst/pkgdown/custom.css */
+body {
+    font-size: 12px; /* You can adjust this value as needed */
+}
+
+h1 {
+    font-size: 24px; /* You can adjust this value as needed */
+}
+
+h2 {
+    font-size: 16px; /* You can adjust this value as needed */
+}
+
+h3 {
+    font-size: 14px; /* You can adjust this value as needed */
+}
+
+h4 {
+    font-size: 12px; /* You can adjust this value as needed */
+}
+
+h5 {
+    font-size: 12px; /* You can adjust this value as needed */
+}
+
+h6 {
+    font-size: 12px; /* You can adjust this value as needed */
+}
