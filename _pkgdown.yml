@@ -2,13 +2,13 @@ url: ~
 template:
   bootstrap: 5
   params:
-    extra_css: inst/pkgdown/custom.css
+    extra_css: https://nie23wp8738.github.io/HDNRA/inst/pkgdown/custom.css
 
 home:
   strip_header: false
 
 navbar:
-  title: "T4cluster"
+  title: "HDNRA"
   left:
     - text: "Reference"
       href: reference/index.html
