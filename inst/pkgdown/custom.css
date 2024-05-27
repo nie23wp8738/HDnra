@@ -1,28 +1,11 @@
 /* inst/pkgdown/custom.css */
-body {
-    font-size: 12px !important; /* You can adjust this value as needed */
+/* Adjust the font size for reference section titles */
+.reference-title {
+    font-size: 14px !important; /* Adjust to your desired size */
 }
 
-h1 {
-    font-size: 16px !important; /* You can adjust this value as needed */
+/* Adjust the font size for the reference section contents */
+.reference-content {
+    font-size: 12px !important; /* Adjust to your desired size */
 }
 
-h2 {
-    font-size: 14px !important; /* You can adjust this value as needed */
-}
-
-h3 {
-    font-size: 12px !important; /* You can adjust this value as needed */
-}
-
-h4 {
-    font-size: 12px !important; /* You can adjust this value as needed */
-}
-
-h5 {
-    font-size: 12px !important; /* You can adjust this value as needed */
-}
-
-h6 {
-    font-size: 12px !important; /* You can adjust this value as needed */
-}
