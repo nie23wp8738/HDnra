@@ -1,14 +1,12 @@
 url: ~
 template:
   bootstrap: 5
-  params:
-    extra_css: https://raw.githubusercontent.com/nie23wp8738/HDNRA/main/inst/pkgdown/custom.css
 
 home:
   strip_header: false
 
 navbar:
-  title: "HDNRA"
+  title: "T4cluster"
   left:
     - text: "Reference"
       href: reference/index.html
@@ -19,39 +17,31 @@ navbar:
       href: https://github.com/nie23wp8738/HDNRA
 
 reference:
+
   - title: "Data Sets"
-    class: "reference-title"  # Add this line
     contents:
-      - has_concept: "data"
-        class: "reference-content"  # Add this line
+      - has_concept("data")
 
   - title: "S3 class 'NRtest'"
-    class: "reference-title"  # Add this line
     contents:
-      - has_concept: "object"
-        class: "reference-content"  # Add this line
+      - has_concept("object")
 
-  - title: "Normal-reference Tests for Two-sample Problem"
-    class: "reference-title"  # Add this line
+  - title: "Normal-refernece Tests for Two-sample Problem"
     contents:
-      - has_concept: "nrats"
-        class: "reference-content"  # Add this line
+      - has_concept("nrats")
 
-  - title: "Normal-reference Tests for GLHT Problem"
-    class: "reference-title"  # Add this line
+  - title: "Normal-refernece Tests for GLHT Problem"
     contents:
-      - has_concept: "nraglht"
-        class: "reference-content"  # Add this line
+      - has_concept("nraglht")
 
   - title: "Some Existing Tests for Two-sample Problem"
-    class: "reference-title"  # Add this line
     contents:
-      - has_concept: "ts"
-        class: "reference-content"  # Add this line
+      - has_concept("ts")
 
   - title: "Some Existing Tests for GLHT Problem"
-    class: "reference-title"  # Add this line
     contents:
-      - has_concept: "glht"
-        class: "reference-content"  # Add this line
+      - has_concept("glht")
 
+# Custom CSS
+extra_css:
+  - inst/pkgdown/custom.css
