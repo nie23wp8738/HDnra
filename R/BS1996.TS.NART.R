@@ -44,7 +44,7 @@ BS1996.TS.NART <- function(y1, y2) {
   }
 
   # Calculate test statistics using the provided C++ function
-  stats <- ts_bs1996_cpp(y1, y2)
+  stats <- bs1996_ts_nart_cpp(y1, y2)
   stat <- stats[1]
 
   # Calculate p-value

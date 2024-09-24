@@ -61,7 +61,7 @@
 #' @export
 #
 ZGZ2017.GLHTBF.NABT <- function(Y, G, n, p) {
-  stats <- glhtbf_zgz2017_cpp(Y, G, n, p)
+  stats <- zgz2017_glhtbf_nabt_cpp(Y, G, n, p)
   stat <- stats[1]
   sigma <- stats[2]
 

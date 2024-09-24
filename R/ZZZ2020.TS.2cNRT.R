@@ -44,7 +44,7 @@ ZZZ2020.TS.2cNRT <- function(y1, y2) {
   }
 
   # Calculate test statistics using the provided C++ function
-  stats <- ts_zzz2020_cpp(y1, y2)
+  stats <- zzz2020_ts_2cnrt_cpp(y1, y2)
   stat <- stats[1]
   dhat <- stats[2]
 

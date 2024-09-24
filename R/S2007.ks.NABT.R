@@ -49,7 +49,7 @@
 #' @concept glht
 #' @export
 S2007.ks.NABT <- function(Y, n, p) {
-  stats <- ks_s2007_cpp(Y, n, p)
+  stats <- s2007_ks_nabt_cpp(Y, n, p)
   stat <- stats[1]
   sigma <- stats[2]
   statstd <- stat / sigma

@@ -45,7 +45,7 @@ SD2008.TS.NABT <- function(y1, y2) {
   }
 
   # Calculate test statistics using the provided C++ function
-  stats <- ts_sd2008_cpp(y1, y2)
+  stats <- sd2008_ts_nabt_cpp(y1, y2)
   stat <- stats[1]
   cpn <- stats[2] # Assuming cpn represents some additional parameters
 

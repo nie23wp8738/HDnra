@@ -43,7 +43,7 @@ ZWZ2023.TSBF.2cNRT <- function(y1, y2) {
   }
 
   # Calculate test statistics using the provided C++ function (assuming tsbf_zwz2023_cpp is defined elsewhere)
-  stats <- tsbf_zwz2023_cpp(y1, y2)
+  stats <- zwz2023_tsbf_2cnrt_cpp(y1, y2)
   stat <- stats[1]
   df1 <- stats[2]
   df2 <- stats[3]

@@ -56,7 +56,7 @@
 #' @concept glht
 #' @export
 SF2006.GLHT.NABT <- function(Y, X, C, n, p) {
-  stats <- glht_sf2006_cpp(Y, X, C, n, p)
+  stats <- sf2006_glht_nabt_cpp(Y, X, C, n, p)
   stat <- stats[1]
 
   # Calculate p-value

@@ -58,7 +58,7 @@
 #' @concept glht
 #' @export
 FHW2004.GLHT.NABT <- function(Y, X, C, n, p) {
-  stats <- glht_fhw2004_cpp(Y, X, C,n,p)
+  stats <- fhw2004_glht_nabt_cpp(Y, X, C,n,p)
   stat <- stats[1]
 
   # Adjust for standardization if needed, similar to other GLHT functions:

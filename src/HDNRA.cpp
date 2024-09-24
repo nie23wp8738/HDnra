@@ -2,6 +2,7 @@
 // [[Rcpp::plugins(cpp11)]]
 // -*- mode: C++; c-indent-level: 4; c-basic-offset: 4; indent-tabs-mode: nil; -*-
 
+#define ARMA_64BIT_WORD
 #include <RcppArmadillo.h>
 #ifdef _OPENMP
 #include <omp.h>
@@ -21,7 +22,7 @@ arma::mat cholesky_inverse(const arma::mat &X) {
 
 // Test proposed by Bai and Saranadasa (1996)
 // [[Rcpp::export]]
-double ts_bs1996_cpp(const arma::mat &y1, const arma::mat &y2) {
+double bs1996_ts_nart_cpp(const arma::mat &y1, const arma::mat &y2) {
   int n1 = y1.n_rows;
   int n2 = y2.n_rows;
   int p = y1.n_cols;
@@ -53,7 +54,7 @@ double ts_bs1996_cpp(const arma::mat &y1, const arma::mat &y2) {
 
 // Test proposed by Chen and Qin (2010)
 // [[Rcpp::export]]
-arma::vec tsbf_cq2010_cpp(const arma::mat &y1, const arma::mat &y2) {
+arma::vec cq2010_tsbf_nabt_cpp(const arma::mat &y1, const arma::mat &y2) {
   int n1 = y1.n_rows;
   int n2 = y2.n_rows;
 
@@ -117,7 +118,7 @@ arma::vec tsbf_cq2010_cpp(const arma::mat &y1, const arma::mat &y2) {
 
 // Test proposed by Zhang et al. (2020)
 // [[Rcpp::export]]
-arma::vec ts_zgzc2020_cpp(const arma::mat &y1, const arma::mat &y2) {
+arma::vec zgzc2020_ts_2cnrt_cpp(const arma::mat &y1, const arma::mat &y2) {
   int n1 = y1.n_rows;
   int n2 = y2.n_rows;
   int p = y1.n_cols;
@@ -158,7 +159,7 @@ arma::vec ts_zgzc2020_cpp(const arma::mat &y1, const arma::mat &y2) {
 
 // Test proposed by Zhang et al. (2021).
 // [[Rcpp::export]]
-arma::vec tsbf_zzgz2021_cpp(const arma::mat &y1, const arma::mat &y2) {
+arma::vec zzgz2021_tsbf_2cnrt_cpp(const arma::mat &y1, const arma::mat &y2) {
   int n1 = y1.n_rows;
   int n2 = y2.n_rows;
   int p = y1.n_cols;
@@ -214,7 +215,7 @@ arma::vec tsbf_zzgz2021_cpp(const arma::mat &y1, const arma::mat &y2) {
 
 // Test proposed by Zhang and Zhu (2022)
 // [[Rcpp::export]]
-arma::vec ts_zz2022_cpp(const arma::mat &y1, const arma::mat &y2) {
+arma::vec zz2022_ts_3cnrt_cpp(const arma::mat &y1, const arma::mat &y2) {
   int n1 = y1.n_rows;
   int n2 = y2.n_rows;
   int p = y1.n_cols;
@@ -258,7 +259,7 @@ arma::vec ts_zz2022_cpp(const arma::mat &y1, const arma::mat &y2) {
 
 // Test proposed by Zhang and Zhu (2022)
 // [[Rcpp::export]]
-arma::vec tsbf_zz2022_cpp(const arma::mat &y1, const arma::mat &y2) {
+arma::vec zz2022_tsbf_3cnrt_cpp(const arma::mat &y1, const arma::mat &y2) {
   int n1 = y1.n_rows;
   int n2 = y2.n_rows;
   int p = y1.n_cols;
@@ -329,7 +330,7 @@ arma::vec tsbf_zz2022_cpp(const arma::mat &y1, const arma::mat &y2) {
 
 // Test proposed by Zhu et al.(2023)
 // [[Rcpp::export]]
-arma::vec tsbf_zwz2023_cpp(const arma::mat &y1, const arma::mat &y2) {
+arma::vec zwz2023_tsbf_2cnrt_cpp(const arma::mat &y1, const arma::mat &y2) {
   int n1 = y1.n_rows;
   int n2 = y2.n_rows;
   int p = y1.n_cols;
@@ -382,7 +383,7 @@ arma::vec tsbf_zwz2023_cpp(const arma::mat &y1, const arma::mat &y2) {
 // Two-sample scale-invariant tests
 // Test proposed by Srivastava and Du (2008)
 // [[Rcpp::export]]
-arma::vec ts_sd2008_cpp(const arma::mat &y1, const arma::mat &y2) {
+arma::vec sd2008_ts_nabt_cpp(const arma::mat &y1, const arma::mat &y2) {
   int n1 = y1.n_rows;
   int n2 = y2.n_rows;
   int n = n1 + n2 - 2;
@@ -428,7 +429,7 @@ arma::vec ts_sd2008_cpp(const arma::mat &y1, const arma::mat &y2) {
 
 // Test proposed by Srivastava et al.(2013)
 // [[Rcpp::export]]
-arma::vec tsbf_skk2013_cpp(const arma::mat &y1, const arma::mat &y2) {
+arma::vec skk2013_tsbf_nabt_cpp(const arma::mat &y1, const arma::mat &y2) {
   int n1 = y1.n_rows;
   int n2 = y2.n_rows;
   int n = n1 + n2 - 2;
@@ -492,7 +493,7 @@ arma::vec tsbf_skk2013_cpp(const arma::mat &y1, const arma::mat &y2) {
 
 // Test proposed by Zhang et al. (2020)
 // [[Rcpp::export]]
-arma::vec ts_zzz2020_cpp(const arma::mat &y1, const arma::mat &y2) {
+arma::vec zzz2020_ts_2cnrt_cpp(const arma::mat &y1, const arma::mat &y2) {
   int n1 = y1.n_rows;
   int n2 = y2.n_rows;
   int n = n1 + n2 - 2;
@@ -538,7 +539,7 @@ arma::vec ts_zzz2020_cpp(const arma::mat &y1, const arma::mat &y2) {
 
 // Test proposed by Zhang et al. (2023)
 // [[Rcpp::export]]
-arma::vec tsbf_zzz2023_cpp(const arma::mat &y1, const arma::mat &y2) {
+arma::vec zzz2023_tsbf_2cnrt_cpp(const arma::mat &y1, const arma::mat &y2) {
   int n1 = y1.n_rows;
   int n2 = y2.n_rows;
   int n = n1 + n2 - 2;
@@ -600,7 +601,7 @@ arma::vec tsbf_zzz2023_cpp(const arma::mat &y1, const arma::mat &y2) {
 // One-way MANOVA
 // Test proposed by Schott (2007)
 // [[Rcpp::export]]
-arma::vec ks_s2007_cpp(List Y, const arma::vec &n, int p) {
+arma::vec s2007_ks_nabt_cpp(List Y, const arma::vec &n, int p) {
   int g = Y.size(); // number of classes
   int h = g - 1;
   int ss = sum(n);
@@ -639,7 +640,7 @@ arma::vec ks_s2007_cpp(List Y, const arma::vec &n, int p) {
 // General linear hypothesis testing (GLHT) problem
 // Test proposed by Fujikoshi et al. (2004)
 // [[Rcpp::export]]
-double glht_fhw2004_cpp(List Y, const arma::mat &X, const arma::mat &C, const arma::vec &n, int p) {
+double fhw2004_glht_nabt_cpp(List Y, const arma::mat &X, const arma::mat &C, const arma::vec &n, int p) {
   int k = Y.size(); // number of classes
   int q = rank(C);
   int ss = sum(n);
@@ -668,7 +669,7 @@ double glht_fhw2004_cpp(List Y, const arma::mat &X, const arma::mat &C, const ar
 
 // Test proposed by Srivastava and Fujikoshi (2006)
 // [[Rcpp::export]]
-double glht_sf2006_cpp(List Y, const arma::mat &X, const arma::mat &C, const arma::vec &n, int p) {
+double sf2006_glht_nabt_cpp(List Y, const arma::mat &X, const arma::mat &C, const arma::vec &n, int p) {
   int k = Y.size(); // number of classes
   int q = rank(C);
   int ss = sum(n);
@@ -697,7 +698,7 @@ double glht_sf2006_cpp(List Y, const arma::mat &X, const arma::mat &C, const arm
 
 // Test proposed by Yamada and Srivastava (2012)
 // [[Rcpp::export]]
-arma::vec glht_ys2012_cpp(const Rcpp::List& Y, const arma::mat& X, const arma::mat& C, const arma::vec& n, int p) {
+arma::vec ys2012_glht_nabt_cpp(const Rcpp::List& Y, const arma::mat& X, const arma::mat& C, const arma::vec& n, int p) {
   int k = Y.size(); // number of classes
   int q = C.n_rows; // rank of C should be its row number
   int ss = arma::sum(n);
@@ -758,7 +759,7 @@ arma::vec glht_ys2012_cpp(const Rcpp::List& Y, const arma::mat& X, const arma::m
 
 // Test proposed by Zhou et al. (2017)
 // [[Rcpp::export]]
-arma::vec glhtbf_zgz2017_cpp(List Y, const arma::mat &tG, const arma::vec &n, int p) {
+arma::vec zgz2017_glhtbf_nabt_cpp(List Y, const arma::mat &tG, const arma::vec &n, int p) {
   int k = Y.size(); // number of classes
   int ss = sum(n);
   arma::mat D = diagmat(1 / n);
@@ -844,7 +845,7 @@ arma::vec glhtbf_zgz2017_cpp(List Y, const arma::mat &tG, const arma::vec &n, in
 
 // Test proposed by Zhang et al. (2017)
 // [[Rcpp::export]]
-arma::vec glht_zgz2017_cpp(List Y, const arma::mat &tG, const arma::vec &n, int p) {
+arma::vec zgz2017_glht_2cnrt_cpp(List Y, const arma::mat &tG, const arma::vec &n, int p) {
   int k = Y.size(); // number of classes
   int q = rank(tG);
   int ss = sum(n);
@@ -881,7 +882,7 @@ arma::vec glht_zgz2017_cpp(List Y, const arma::mat &tG, const arma::vec &n, int 
 
 // Test proposed by Zhang et al. (2022)
 // [[Rcpp::export]]
-arma::vec glhtbf_zzg2022_cpp(List Y, const arma::mat &tG, const arma::vec &n, int p) {
+arma::vec zzg2022_glhtbf_2cnrt_cpp(List Y, const arma::mat &tG, const arma::vec &n, int p) {
   int k = Y.size(); // number of classes
   int ss = sum(n);
   arma::mat D = diagmat(1 / n);
@@ -967,7 +968,7 @@ arma::vec glhtbf_zzg2022_cpp(List Y, const arma::mat &tG, const arma::vec &n, in
 
 // Test proposed by Zhang and Zhu (2022)
 // [[Rcpp::export]]
-arma::vec glht_zz2022_cpp(List Y, const arma::mat &tG, const arma::vec &n, int p) {
+arma::vec zz2022_glht_3cnrt_cpp(List Y, const arma::mat &tG, const arma::vec &n, int p) {
   int k = Y.size(); // number of classes
   int q = rank(tG);
   int ss = sum(n);
@@ -1013,7 +1014,7 @@ arma::vec glht_zz2022_cpp(List Y, const arma::mat &tG, const arma::vec &n, int p
 
 //Test proposed by Zhang and Zhu (2022)
 // [[Rcpp::export]]
-arma::vec glhtbf_zz2022_cpp(const Rcpp::List& Y, const arma::mat& tG, const arma::vec& n, int p) {
+arma::vec zz2022_glhtbf_3cnrt_cpp(const Rcpp::List& Y, const arma::mat& tG, const arma::vec& n, int p) {
   int k = Y.size(); // number of classes
   int ss = sum(n);
   arma::mat D = diagmat(1/n);
@@ -1129,7 +1130,7 @@ arma::vec glhtbf_zz2022_cpp(const Rcpp::List& Y, const arma::mat& tG, const arma
 
 // Test proposed by Zhang and Zhu (2022)
 // [[Rcpp::export]]
-arma::vec glht_zzz2022_cpp(const Rcpp::List& Y, const arma::mat& X, const arma::mat& C, const arma::vec& n, int p) {
+arma::vec zzz2022_glht_2cnrt_cpp(const Rcpp::List& Y, const arma::mat& X, const arma::mat& C, const arma::vec& n, int p) {
   int k = Y.size(); // number of classes
   int q = C.n_rows; // rank of C should be its row number
   int ss = arma::sum(n);

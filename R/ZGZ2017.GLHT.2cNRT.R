@@ -58,7 +58,7 @@
 #
 
 ZGZ2017.GLHT.2cNRT <- function(Y, G, n, p) {
-  stats <- glht_zgz2017_cpp(Y, G, n, p)
+  stats <- zgz2017_glht_2cnrt_cpp(Y, G, n, p)
   stat <- stats[1]
   beta <- stats[2]
   df <- stats[3]

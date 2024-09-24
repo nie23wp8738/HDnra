@@ -42,7 +42,7 @@ ZGZC2020.TS.2cNRT <- function(y1, y2) {
   }
 
   # Calculate test statistics using the provided C++ function
-  stats <- ts_zgzc2020_cpp(y1, y2)
+  stats <- zgzc2020_ts_2cnrt_cpp(y1, y2)
   stat <- stats[1]
   statn <- stats[2]
   beta <- stats[3]

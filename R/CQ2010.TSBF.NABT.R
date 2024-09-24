@@ -42,7 +42,7 @@ CQ2010.TSBF.NABT<- function(y1, y2) {
   }
 
   # Calculate test statistics using the provided C++ function
-  stats <- tsbf_cq2010_cpp(y1, y2)
+  stats <- cq2010_tsbf_nabt_cpp(y1, y2)
   statn <- stats[1]
 
   # Calculate p-value

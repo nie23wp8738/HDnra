@@ -55,7 +55,7 @@
 #' @concept nraglht
 #' @export
 ZZ2022.GLHTBF.3cNRT <- function(Y, G, n, p) {
-  stats <- glhtbf_zz2022_cpp(Y, G, n, p)
+  stats <- zz2022_glhtbf_3cnrt_cpp(Y, G, n, p)
   stat <- stats[1]
   beta0 <- stats[2]
   beta1 <- stats[3]

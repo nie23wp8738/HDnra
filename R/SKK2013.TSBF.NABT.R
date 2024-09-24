@@ -44,7 +44,7 @@ SKK2013.TSBF.NABT <- function(y1, y2) {
   }
 
   # Calculate test statistics using the provided C++ function
-  stats <- tsbf_skk2013_cpp(y1, y2)
+  stats <- skk2013_tsbf_nabt_cpp(y1, y2)
   stat <- stats[1]
   cpn <- stats[3] # Assuming cpn represents some additional parameters
 

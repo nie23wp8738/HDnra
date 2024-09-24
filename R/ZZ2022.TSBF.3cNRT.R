@@ -44,7 +44,7 @@ ZZ2022.TSBF.3cNRT<- function(y1, y2) {
   }
 
   # Calculate test statistics using the provided C++ function
-  stats <- tsbf_zz2022_cpp(y1, y2)
+  stats <- zz2022_tsbf_3cnrt_cpp(y1, y2)
   stat <- stats[1]
   beta0 <- stats[2]
   beta1 <- stats[3]

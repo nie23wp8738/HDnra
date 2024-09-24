@@ -53,7 +53,7 @@
 #' @concept nraglht
 #' @export
 ZZZ2022.GLHT.2cNRT <- function(Y, X, C, n, p) {
-  stats <- glht_zzz2022_cpp(Y, X, C, n, p)
+  stats <- zzz2022_glht_2cnrt_cpp(Y, X, C, n, p)
   stat <- stats[1]
   df <- stats[2]
   # Obtain sample size n and number of predictors k

@@ -56,7 +56,7 @@
 #' @concept glht
 #' @export
 YS2012.GLHT.NABT <- function(Y, X, C, n, p) {
-  stats <- glht_ys2012_cpp(Y, X, C, n, p)
+  stats <- ys2012_glht_nabt_cpp(Y, X, C, n, p)
   stat <- stats[1]
   cpn <- stats[2]
 
