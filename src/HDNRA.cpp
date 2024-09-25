@@ -2,7 +2,6 @@
 // [[Rcpp::plugins(cpp11)]]
 // -*- mode: C++; c-indent-level: 4; c-basic-offset: 4; indent-tabs-mode: nil; -*-
 
-#define ARMA_64BIT_WORD
 #include <RcppArmadillo.h>
 #ifdef _OPENMP
 #include <omp.h>
@@ -15,9 +14,9 @@ using namespace arma;
 
 // Helper function to compute inverse using Cholesky decomposition
 arma::mat cholesky_inverse(const arma::mat &X) {
-  arma::mat L = arma::chol(X, "lower");
-  arma::mat Linv = arma::inv(L);
-  return Linv.t() * Linv;
+  arma::mat L = arma::chol(X);  // Returns upper triangular matrix
+  arma::mat Linv = arma::inv(L);  // Computes inverse of L
+  return Linv.t() * Linv;  // Matrix inverse
 }
 
 // Test proposed by Bai and Saranadasa (1996)

@@ -11,169 +11,154 @@ Rcpp::Rostream<true>&  Rcpp::Rcout = Rcpp::Rcpp_cout_get();
 Rcpp::Rostream<false>& Rcpp::Rcerr = Rcpp::Rcpp_cerr_get();
 #endif
 
-// ts_bs1996_cpp
-double ts_bs1996_cpp(const arma::mat& y1, const arma::mat& y2);
-RcppExport SEXP _HDNRA_ts_bs1996_cpp(SEXP y1SEXP, SEXP y2SEXP) {
+// bs1996_ts_nart_cpp
+double bs1996_ts_nart_cpp(const arma::mat& y1, const arma::mat& y2);
+RcppExport SEXP _HDNRA_bs1996_ts_nart_cpp(SEXP y1SEXP, SEXP y2SEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
     Rcpp::traits::input_parameter< const arma::mat& >::type y1(y1SEXP);
     Rcpp::traits::input_parameter< const arma::mat& >::type y2(y2SEXP);
-    rcpp_result_gen = Rcpp::wrap(ts_bs1996_cpp(y1, y2));
+    rcpp_result_gen = Rcpp::wrap(bs1996_ts_nart_cpp(y1, y2));
     return rcpp_result_gen;
 END_RCPP
 }
-// tsbf_cq2010_cpp
-arma::vec tsbf_cq2010_cpp(const arma::mat& y1, const arma::mat& y2);
-RcppExport SEXP _HDNRA_tsbf_cq2010_cpp(SEXP y1SEXP, SEXP y2SEXP) {
+// cq2010_tsbf_nabt_cpp
+arma::vec cq2010_tsbf_nabt_cpp(const arma::mat& y1, const arma::mat& y2);
+RcppExport SEXP _HDNRA_cq2010_tsbf_nabt_cpp(SEXP y1SEXP, SEXP y2SEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
     Rcpp::traits::input_parameter< const arma::mat& >::type y1(y1SEXP);
     Rcpp::traits::input_parameter< const arma::mat& >::type y2(y2SEXP);
-    rcpp_result_gen = Rcpp::wrap(tsbf_cq2010_cpp(y1, y2));
+    rcpp_result_gen = Rcpp::wrap(cq2010_tsbf_nabt_cpp(y1, y2));
     return rcpp_result_gen;
 END_RCPP
 }
-// ts_zgzc2020_cpp
-arma::vec ts_zgzc2020_cpp(const arma::mat& y1, const arma::mat& y2);
-RcppExport SEXP _HDNRA_ts_zgzc2020_cpp(SEXP y1SEXP, SEXP y2SEXP) {
+// zgzc2020_ts_2cnrt_cpp
+arma::vec zgzc2020_ts_2cnrt_cpp(const arma::mat& y1, const arma::mat& y2);
+RcppExport SEXP _HDNRA_zgzc2020_ts_2cnrt_cpp(SEXP y1SEXP, SEXP y2SEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
     Rcpp::traits::input_parameter< const arma::mat& >::type y1(y1SEXP);
     Rcpp::traits::input_parameter< const arma::mat& >::type y2(y2SEXP);
-    rcpp_result_gen = Rcpp::wrap(ts_zgzc2020_cpp(y1, y2));
+    rcpp_result_gen = Rcpp::wrap(zgzc2020_ts_2cnrt_cpp(y1, y2));
     return rcpp_result_gen;
 END_RCPP
 }
-// tsbf_zzgz2021_cpp
-arma::vec tsbf_zzgz2021_cpp(const arma::mat& y1, const arma::mat& y2);
-RcppExport SEXP _HDNRA_tsbf_zzgz2021_cpp(SEXP y1SEXP, SEXP y2SEXP) {
+// zzgz2021_tsbf_2cnrt_cpp
+arma::vec zzgz2021_tsbf_2cnrt_cpp(const arma::mat& y1, const arma::mat& y2);
+RcppExport SEXP _HDNRA_zzgz2021_tsbf_2cnrt_cpp(SEXP y1SEXP, SEXP y2SEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
     Rcpp::traits::input_parameter< const arma::mat& >::type y1(y1SEXP);
     Rcpp::traits::input_parameter< const arma::mat& >::type y2(y2SEXP);
-    rcpp_result_gen = Rcpp::wrap(tsbf_zzgz2021_cpp(y1, y2));
+    rcpp_result_gen = Rcpp::wrap(zzgz2021_tsbf_2cnrt_cpp(y1, y2));
     return rcpp_result_gen;
 END_RCPP
 }
-// ts_zz2022_cpp
-arma::vec ts_zz2022_cpp(const arma::mat& y1, const arma::mat& y2);
-RcppExport SEXP _HDNRA_ts_zz2022_cpp(SEXP y1SEXP, SEXP y2SEXP) {
+// zz2022_ts_3cnrt_cpp
+arma::vec zz2022_ts_3cnrt_cpp(const arma::mat& y1, const arma::mat& y2);
+RcppExport SEXP _HDNRA_zz2022_ts_3cnrt_cpp(SEXP y1SEXP, SEXP y2SEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
     Rcpp::traits::input_parameter< const arma::mat& >::type y1(y1SEXP);
     Rcpp::traits::input_parameter< const arma::mat& >::type y2(y2SEXP);
-    rcpp_result_gen = Rcpp::wrap(ts_zz2022_cpp(y1, y2));
+    rcpp_result_gen = Rcpp::wrap(zz2022_ts_3cnrt_cpp(y1, y2));
     return rcpp_result_gen;
 END_RCPP
 }
-// tsbf_zz2022_cpp
-arma::vec tsbf_zz2022_cpp(const arma::mat& y1, const arma::mat& y2);
-RcppExport SEXP _HDNRA_tsbf_zz2022_cpp(SEXP y1SEXP, SEXP y2SEXP) {
+// zz2022_tsbf_3cnrt_cpp
+arma::vec zz2022_tsbf_3cnrt_cpp(const arma::mat& y1, const arma::mat& y2);
+RcppExport SEXP _HDNRA_zz2022_tsbf_3cnrt_cpp(SEXP y1SEXP, SEXP y2SEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
     Rcpp::traits::input_parameter< const arma::mat& >::type y1(y1SEXP);
     Rcpp::traits::input_parameter< const arma::mat& >::type y2(y2SEXP);
-    rcpp_result_gen = Rcpp::wrap(tsbf_zz2022_cpp(y1, y2));
+    rcpp_result_gen = Rcpp::wrap(zz2022_tsbf_3cnrt_cpp(y1, y2));
     return rcpp_result_gen;
 END_RCPP
 }
-// tsbf_zwz2023_cpp
-arma::vec tsbf_zwz2023_cpp(const arma::mat& y1, const arma::mat& y2);
-RcppExport SEXP _HDNRA_tsbf_zwz2023_cpp(SEXP y1SEXP, SEXP y2SEXP) {
+// zwz2023_tsbf_2cnrt_cpp
+arma::vec zwz2023_tsbf_2cnrt_cpp(const arma::mat& y1, const arma::mat& y2);
+RcppExport SEXP _HDNRA_zwz2023_tsbf_2cnrt_cpp(SEXP y1SEXP, SEXP y2SEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
     Rcpp::traits::input_parameter< const arma::mat& >::type y1(y1SEXP);
     Rcpp::traits::input_parameter< const arma::mat& >::type y2(y2SEXP);
-    rcpp_result_gen = Rcpp::wrap(tsbf_zwz2023_cpp(y1, y2));
+    rcpp_result_gen = Rcpp::wrap(zwz2023_tsbf_2cnrt_cpp(y1, y2));
     return rcpp_result_gen;
 END_RCPP
 }
-// ts_sd2008_cpp
-arma::vec ts_sd2008_cpp(const arma::mat& y1, const arma::mat& y2);
-RcppExport SEXP _HDNRA_ts_sd2008_cpp(SEXP y1SEXP, SEXP y2SEXP) {
+// sd2008_ts_nabt_cpp
+arma::vec sd2008_ts_nabt_cpp(const arma::mat& y1, const arma::mat& y2);
+RcppExport SEXP _HDNRA_sd2008_ts_nabt_cpp(SEXP y1SEXP, SEXP y2SEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
     Rcpp::traits::input_parameter< const arma::mat& >::type y1(y1SEXP);
     Rcpp::traits::input_parameter< const arma::mat& >::type y2(y2SEXP);
-    rcpp_result_gen = Rcpp::wrap(ts_sd2008_cpp(y1, y2));
+    rcpp_result_gen = Rcpp::wrap(sd2008_ts_nabt_cpp(y1, y2));
     return rcpp_result_gen;
 END_RCPP
 }
-// tsbf_skk2013_cpp
-arma::vec tsbf_skk2013_cpp(const arma::mat& y1, const arma::mat& y2);
-RcppExport SEXP _HDNRA_tsbf_skk2013_cpp(SEXP y1SEXP, SEXP y2SEXP) {
+// skk2013_tsbf_nabt_cpp
+arma::vec skk2013_tsbf_nabt_cpp(const arma::mat& y1, const arma::mat& y2);
+RcppExport SEXP _HDNRA_skk2013_tsbf_nabt_cpp(SEXP y1SEXP, SEXP y2SEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
     Rcpp::traits::input_parameter< const arma::mat& >::type y1(y1SEXP);
     Rcpp::traits::input_parameter< const arma::mat& >::type y2(y2SEXP);
-    rcpp_result_gen = Rcpp::wrap(tsbf_skk2013_cpp(y1, y2));
+    rcpp_result_gen = Rcpp::wrap(skk2013_tsbf_nabt_cpp(y1, y2));
     return rcpp_result_gen;
 END_RCPP
 }
-// ts_zzz2020_cpp
-arma::vec ts_zzz2020_cpp(const arma::mat& y1, const arma::mat& y2);
-RcppExport SEXP _HDNRA_ts_zzz2020_cpp(SEXP y1SEXP, SEXP y2SEXP) {
+// zzz2020_ts_2cnrt_cpp
+arma::vec zzz2020_ts_2cnrt_cpp(const arma::mat& y1, const arma::mat& y2);
+RcppExport SEXP _HDNRA_zzz2020_ts_2cnrt_cpp(SEXP y1SEXP, SEXP y2SEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
     Rcpp::traits::input_parameter< const arma::mat& >::type y1(y1SEXP);
     Rcpp::traits::input_parameter< const arma::mat& >::type y2(y2SEXP);
-    rcpp_result_gen = Rcpp::wrap(ts_zzz2020_cpp(y1, y2));
+    rcpp_result_gen = Rcpp::wrap(zzz2020_ts_2cnrt_cpp(y1, y2));
     return rcpp_result_gen;
 END_RCPP
 }
-// tsbf_zzz2023_cpp
-arma::vec tsbf_zzz2023_cpp(const arma::mat& y1, const arma::mat& y2);
-RcppExport SEXP _HDNRA_tsbf_zzz2023_cpp(SEXP y1SEXP, SEXP y2SEXP) {
+// zzz2023_tsbf_2cnrt_cpp
+arma::vec zzz2023_tsbf_2cnrt_cpp(const arma::mat& y1, const arma::mat& y2);
+RcppExport SEXP _HDNRA_zzz2023_tsbf_2cnrt_cpp(SEXP y1SEXP, SEXP y2SEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
     Rcpp::traits::input_parameter< const arma::mat& >::type y1(y1SEXP);
     Rcpp::traits::input_parameter< const arma::mat& >::type y2(y2SEXP);
-    rcpp_result_gen = Rcpp::wrap(tsbf_zzz2023_cpp(y1, y2));
+    rcpp_result_gen = Rcpp::wrap(zzz2023_tsbf_2cnrt_cpp(y1, y2));
     return rcpp_result_gen;
 END_RCPP
 }
-// ks_s2007_cpp
-arma::vec ks_s2007_cpp(List Y, const arma::vec& n, int p);
-RcppExport SEXP _HDNRA_ks_s2007_cpp(SEXP YSEXP, SEXP nSEXP, SEXP pSEXP) {
+// s2007_ks_nabt_cpp
+arma::vec s2007_ks_nabt_cpp(List Y, const arma::vec& n, int p);
+RcppExport SEXP _HDNRA_s2007_ks_nabt_cpp(SEXP YSEXP, SEXP nSEXP, SEXP pSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
     Rcpp::traits::input_parameter< List >::type Y(YSEXP);
     Rcpp::traits::input_parameter< const arma::vec& >::type n(nSEXP);
     Rcpp::traits::input_parameter< int >::type p(pSEXP);
-    rcpp_result_gen = Rcpp::wrap(ks_s2007_cpp(Y, n, p));
+    rcpp_result_gen = Rcpp::wrap(s2007_ks_nabt_cpp(Y, n, p));
     return rcpp_result_gen;
 END_RCPP
 }
-// glht_fhw2004_cpp
-double glht_fhw2004_cpp(List Y, const arma::mat& X, const arma::mat& C, const arma::vec& n, int p);
-RcppExport SEXP _HDNRA_glht_fhw2004_cpp(SEXP YSEXP, SEXP XSEXP, SEXP CSEXP, SEXP nSEXP, SEXP pSEXP) {
-BEGIN_RCPP
-    Rcpp::RObject rcpp_result_gen;
-    Rcpp::RNGScope rcpp_rngScope_gen;
-    Rcpp::traits::input_parameter< List >::type Y(YSEXP);
-    Rcpp::traits::input_parameter< const arma::mat& >::type X(XSEXP);
-    Rcpp::traits::input_parameter< const arma::mat& >::type C(CSEXP);
-    Rcpp::traits::input_parameter< const arma::vec& >::type n(nSEXP);
-    Rcpp::traits::input_parameter< int >::type p(pSEXP);
-    rcpp_result_gen = Rcpp::wrap(glht_fhw2004_cpp(Y, X, C, n, p));
-    return rcpp_result_gen;
-END_RCPP
-}
-// glht_sf2006_cpp
-double glht_sf2006_cpp(List Y, const arma::mat& X, const arma::mat& C, const arma::vec& n, int p);
-RcppExport SEXP _HDNRA_glht_sf2006_cpp(SEXP YSEXP, SEXP XSEXP, SEXP CSEXP, SEXP nSEXP, SEXP pSEXP) {
+// fhw2004_glht_nabt_cpp
+double fhw2004_glht_nabt_cpp(List Y, const arma::mat& X, const arma::mat& C, const arma::vec& n, int p);
+RcppExport SEXP _HDNRA_fhw2004_glht_nabt_cpp(SEXP YSEXP, SEXP XSEXP, SEXP CSEXP, SEXP nSEXP, SEXP pSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -182,13 +167,28 @@ BEGIN_RCPP
     Rcpp::traits::input_parameter< const arma::mat& >::type C(CSEXP);
     Rcpp::traits::input_parameter< const arma::vec& >::type n(nSEXP);
     Rcpp::traits::input_parameter< int >::type p(pSEXP);
-    rcpp_result_gen = Rcpp::wrap(glht_sf2006_cpp(Y, X, C, n, p));
+    rcpp_result_gen = Rcpp::wrap(fhw2004_glht_nabt_cpp(Y, X, C, n, p));
     return rcpp_result_gen;
 END_RCPP
 }
-// glht_ys2012_cpp
-arma::vec glht_ys2012_cpp(const Rcpp::List& Y, const arma::mat& X, const arma::mat& C, const arma::vec& n, int p);
-RcppExport SEXP _HDNRA_glht_ys2012_cpp(SEXP YSEXP, SEXP XSEXP, SEXP CSEXP, SEXP nSEXP, SEXP pSEXP) {
+// sf2006_glht_nabt_cpp
+double sf2006_glht_nabt_cpp(List Y, const arma::mat& X, const arma::mat& C, const arma::vec& n, int p);
+RcppExport SEXP _HDNRA_sf2006_glht_nabt_cpp(SEXP YSEXP, SEXP XSEXP, SEXP CSEXP, SEXP nSEXP, SEXP pSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< List >::type Y(YSEXP);
+    Rcpp::traits::input_parameter< const arma::mat& >::type X(XSEXP);
+    Rcpp::traits::input_parameter< const arma::mat& >::type C(CSEXP);
+    Rcpp::traits::input_parameter< const arma::vec& >::type n(nSEXP);
+    Rcpp::traits::input_parameter< int >::type p(pSEXP);
+    rcpp_result_gen = Rcpp::wrap(sf2006_glht_nabt_cpp(Y, X, C, n, p));
+    return rcpp_result_gen;
+END_RCPP
+}
+// ys2012_glht_nabt_cpp
+arma::vec ys2012_glht_nabt_cpp(const Rcpp::List& Y, const arma::mat& X, const arma::mat& C, const arma::vec& n, int p);
+RcppExport SEXP _HDNRA_ys2012_glht_nabt_cpp(SEXP YSEXP, SEXP XSEXP, SEXP CSEXP, SEXP nSEXP, SEXP pSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -197,13 +197,13 @@ BEGIN_RCPP
     Rcpp::traits::input_parameter< const arma::mat& >::type C(CSEXP);
     Rcpp::traits::input_parameter< const arma::vec& >::type n(nSEXP);
     Rcpp::traits::input_parameter< int >::type p(pSEXP);
-    rcpp_result_gen = Rcpp::wrap(glht_ys2012_cpp(Y, X, C, n, p));
+    rcpp_result_gen = Rcpp::wrap(ys2012_glht_nabt_cpp(Y, X, C, n, p));
     return rcpp_result_gen;
 END_RCPP
 }
-// glhtbf_zgz2017_cpp
-arma::vec glhtbf_zgz2017_cpp(List Y, const arma::mat& tG, const arma::vec& n, int p);
-RcppExport SEXP _HDNRA_glhtbf_zgz2017_cpp(SEXP YSEXP, SEXP tGSEXP, SEXP nSEXP, SEXP pSEXP) {
+// zgz2017_glhtbf_nabt_cpp
+arma::vec zgz2017_glhtbf_nabt_cpp(List Y, const arma::mat& tG, const arma::vec& n, int p);
+RcppExport SEXP _HDNRA_zgz2017_glhtbf_nabt_cpp(SEXP YSEXP, SEXP tGSEXP, SEXP nSEXP, SEXP pSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -211,13 +211,13 @@ BEGIN_RCPP
     Rcpp::traits::input_parameter< const arma::mat& >::type tG(tGSEXP);
     Rcpp::traits::input_parameter< const arma::vec& >::type n(nSEXP);
     Rcpp::traits::input_parameter< int >::type p(pSEXP);
-    rcpp_result_gen = Rcpp::wrap(glhtbf_zgz2017_cpp(Y, tG, n, p));
+    rcpp_result_gen = Rcpp::wrap(zgz2017_glhtbf_nabt_cpp(Y, tG, n, p));
     return rcpp_result_gen;
 END_RCPP
 }
-// glht_zgz2017_cpp
-arma::vec glht_zgz2017_cpp(List Y, const arma::mat& tG, const arma::vec& n, int p);
-RcppExport SEXP _HDNRA_glht_zgz2017_cpp(SEXP YSEXP, SEXP tGSEXP, SEXP nSEXP, SEXP pSEXP) {
+// zgz2017_glht_2cnrt_cpp
+arma::vec zgz2017_glht_2cnrt_cpp(List Y, const arma::mat& tG, const arma::vec& n, int p);
+RcppExport SEXP _HDNRA_zgz2017_glht_2cnrt_cpp(SEXP YSEXP, SEXP tGSEXP, SEXP nSEXP, SEXP pSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -225,13 +225,13 @@ BEGIN_RCPP
     Rcpp::traits::input_parameter< const arma::mat& >::type tG(tGSEXP);
     Rcpp::traits::input_parameter< const arma::vec& >::type n(nSEXP);
     Rcpp::traits::input_parameter< int >::type p(pSEXP);
-    rcpp_result_gen = Rcpp::wrap(glht_zgz2017_cpp(Y, tG, n, p));
+    rcpp_result_gen = Rcpp::wrap(zgz2017_glht_2cnrt_cpp(Y, tG, n, p));
     return rcpp_result_gen;
 END_RCPP
 }
-// glhtbf_zzg2022_cpp
-arma::vec glhtbf_zzg2022_cpp(List Y, const arma::mat& tG, const arma::vec& n, int p);
-RcppExport SEXP _HDNRA_glhtbf_zzg2022_cpp(SEXP YSEXP, SEXP tGSEXP, SEXP nSEXP, SEXP pSEXP) {
+// zzg2022_glhtbf_2cnrt_cpp
+arma::vec zzg2022_glhtbf_2cnrt_cpp(List Y, const arma::mat& tG, const arma::vec& n, int p);
+RcppExport SEXP _HDNRA_zzg2022_glhtbf_2cnrt_cpp(SEXP YSEXP, SEXP tGSEXP, SEXP nSEXP, SEXP pSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -239,13 +239,13 @@ BEGIN_RCPP
     Rcpp::traits::input_parameter< const arma::mat& >::type tG(tGSEXP);
     Rcpp::traits::input_parameter< const arma::vec& >::type n(nSEXP);
     Rcpp::traits::input_parameter< int >::type p(pSEXP);
-    rcpp_result_gen = Rcpp::wrap(glhtbf_zzg2022_cpp(Y, tG, n, p));
+    rcpp_result_gen = Rcpp::wrap(zzg2022_glhtbf_2cnrt_cpp(Y, tG, n, p));
     return rcpp_result_gen;
 END_RCPP
 }
-// glht_zz2022_cpp
-arma::vec glht_zz2022_cpp(List Y, const arma::mat& tG, const arma::vec& n, int p);
-RcppExport SEXP _HDNRA_glht_zz2022_cpp(SEXP YSEXP, SEXP tGSEXP, SEXP nSEXP, SEXP pSEXP) {
+// zz2022_glht_3cnrt_cpp
+arma::vec zz2022_glht_3cnrt_cpp(List Y, const arma::mat& tG, const arma::vec& n, int p);
+RcppExport SEXP _HDNRA_zz2022_glht_3cnrt_cpp(SEXP YSEXP, SEXP tGSEXP, SEXP nSEXP, SEXP pSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -253,13 +253,13 @@ BEGIN_RCPP
     Rcpp::traits::input_parameter< const arma::mat& >::type tG(tGSEXP);
     Rcpp::traits::input_parameter< const arma::vec& >::type n(nSEXP);
     Rcpp::traits::input_parameter< int >::type p(pSEXP);
-    rcpp_result_gen = Rcpp::wrap(glht_zz2022_cpp(Y, tG, n, p));
+    rcpp_result_gen = Rcpp::wrap(zz2022_glht_3cnrt_cpp(Y, tG, n, p));
     return rcpp_result_gen;
 END_RCPP
 }
-// glhtbf_zz2022_cpp
-arma::vec glhtbf_zz2022_cpp(const Rcpp::List& Y, const arma::mat& tG, const arma::vec& n, int p);
-RcppExport SEXP _HDNRA_glhtbf_zz2022_cpp(SEXP YSEXP, SEXP tGSEXP, SEXP nSEXP, SEXP pSEXP) {
+// zz2022_glhtbf_3cnrt_cpp
+arma::vec zz2022_glhtbf_3cnrt_cpp(const Rcpp::List& Y, const arma::mat& tG, const arma::vec& n, int p);
+RcppExport SEXP _HDNRA_zz2022_glhtbf_3cnrt_cpp(SEXP YSEXP, SEXP tGSEXP, SEXP nSEXP, SEXP pSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -267,13 +267,13 @@ BEGIN_RCPP
     Rcpp::traits::input_parameter< const arma::mat& >::type tG(tGSEXP);
     Rcpp::traits::input_parameter< const arma::vec& >::type n(nSEXP);
     Rcpp::traits::input_parameter< int >::type p(pSEXP);
-    rcpp_result_gen = Rcpp::wrap(glhtbf_zz2022_cpp(Y, tG, n, p));
+    rcpp_result_gen = Rcpp::wrap(zz2022_glhtbf_3cnrt_cpp(Y, tG, n, p));
     return rcpp_result_gen;
 END_RCPP
 }
-// glht_zzz2022_cpp
-arma::vec glht_zzz2022_cpp(const Rcpp::List& Y, const arma::mat& X, const arma::mat& C, const arma::vec& n, int p);
-RcppExport SEXP _HDNRA_glht_zzz2022_cpp(SEXP YSEXP, SEXP XSEXP, SEXP CSEXP, SEXP nSEXP, SEXP pSEXP) {
+// zzz2022_glht_2cnrt_cpp
+arma::vec zzz2022_glht_2cnrt_cpp(const Rcpp::List& Y, const arma::mat& X, const arma::mat& C, const arma::vec& n, int p);
+RcppExport SEXP _HDNRA_zzz2022_glht_2cnrt_cpp(SEXP YSEXP, SEXP XSEXP, SEXP CSEXP, SEXP nSEXP, SEXP pSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -282,33 +282,33 @@ BEGIN_RCPP
     Rcpp::traits::input_parameter< const arma::mat& >::type C(CSEXP);
     Rcpp::traits::input_parameter< const arma::vec& >::type n(nSEXP);
     Rcpp::traits::input_parameter< int >::type p(pSEXP);
-    rcpp_result_gen = Rcpp::wrap(glht_zzz2022_cpp(Y, X, C, n, p));
+    rcpp_result_gen = Rcpp::wrap(zzz2022_glht_2cnrt_cpp(Y, X, C, n, p));
     return rcpp_result_gen;
 END_RCPP
 }
 
 static const R_CallMethodDef CallEntries[] = {
-    {"_HDNRA_ts_bs1996_cpp", (DL_FUNC) &_HDNRA_ts_bs1996_cpp, 2},
-    {"_HDNRA_tsbf_cq2010_cpp", (DL_FUNC) &_HDNRA_tsbf_cq2010_cpp, 2},
-    {"_HDNRA_ts_zgzc2020_cpp", (DL_FUNC) &_HDNRA_ts_zgzc2020_cpp, 2},
-    {"_HDNRA_tsbf_zzgz2021_cpp", (DL_FUNC) &_HDNRA_tsbf_zzgz2021_cpp, 2},
-    {"_HDNRA_ts_zz2022_cpp", (DL_FUNC) &_HDNRA_ts_zz2022_cpp, 2},
-    {"_HDNRA_tsbf_zz2022_cpp", (DL_FUNC) &_HDNRA_tsbf_zz2022_cpp, 2},
-    {"_HDNRA_tsbf_zwz2023_cpp", (DL_FUNC) &_HDNRA_tsbf_zwz2023_cpp, 2},
-    {"_HDNRA_ts_sd2008_cpp", (DL_FUNC) &_HDNRA_ts_sd2008_cpp, 2},
-    {"_HDNRA_tsbf_skk2013_cpp", (DL_FUNC) &_HDNRA_tsbf_skk2013_cpp, 2},
-    {"_HDNRA_ts_zzz2020_cpp", (DL_FUNC) &_HDNRA_ts_zzz2020_cpp, 2},
-    {"_HDNRA_tsbf_zzz2023_cpp", (DL_FUNC) &_HDNRA_tsbf_zzz2023_cpp, 2},
-    {"_HDNRA_ks_s2007_cpp", (DL_FUNC) &_HDNRA_ks_s2007_cpp, 3},
-    {"_HDNRA_glht_fhw2004_cpp", (DL_FUNC) &_HDNRA_glht_fhw2004_cpp, 5},
-    {"_HDNRA_glht_sf2006_cpp", (DL_FUNC) &_HDNRA_glht_sf2006_cpp, 5},
-    {"_HDNRA_glht_ys2012_cpp", (DL_FUNC) &_HDNRA_glht_ys2012_cpp, 5},
-    {"_HDNRA_glhtbf_zgz2017_cpp", (DL_FUNC) &_HDNRA_glhtbf_zgz2017_cpp, 4},
-    {"_HDNRA_glht_zgz2017_cpp", (DL_FUNC) &_HDNRA_glht_zgz2017_cpp, 4},
-    {"_HDNRA_glhtbf_zzg2022_cpp", (DL_FUNC) &_HDNRA_glhtbf_zzg2022_cpp, 4},
-    {"_HDNRA_glht_zz2022_cpp", (DL_FUNC) &_HDNRA_glht_zz2022_cpp, 4},
-    {"_HDNRA_glhtbf_zz2022_cpp", (DL_FUNC) &_HDNRA_glhtbf_zz2022_cpp, 4},
-    {"_HDNRA_glht_zzz2022_cpp", (DL_FUNC) &_HDNRA_glht_zzz2022_cpp, 5},
+    {"_HDNRA_bs1996_ts_nart_cpp", (DL_FUNC) &_HDNRA_bs1996_ts_nart_cpp, 2},
+    {"_HDNRA_cq2010_tsbf_nabt_cpp", (DL_FUNC) &_HDNRA_cq2010_tsbf_nabt_cpp, 2},
+    {"_HDNRA_zgzc2020_ts_2cnrt_cpp", (DL_FUNC) &_HDNRA_zgzc2020_ts_2cnrt_cpp, 2},
+    {"_HDNRA_zzgz2021_tsbf_2cnrt_cpp", (DL_FUNC) &_HDNRA_zzgz2021_tsbf_2cnrt_cpp, 2},
+    {"_HDNRA_zz2022_ts_3cnrt_cpp", (DL_FUNC) &_HDNRA_zz2022_ts_3cnrt_cpp, 2},
+    {"_HDNRA_zz2022_tsbf_3cnrt_cpp", (DL_FUNC) &_HDNRA_zz2022_tsbf_3cnrt_cpp, 2},
+    {"_HDNRA_zwz2023_tsbf_2cnrt_cpp", (DL_FUNC) &_HDNRA_zwz2023_tsbf_2cnrt_cpp, 2},
+    {"_HDNRA_sd2008_ts_nabt_cpp", (DL_FUNC) &_HDNRA_sd2008_ts_nabt_cpp, 2},
+    {"_HDNRA_skk2013_tsbf_nabt_cpp", (DL_FUNC) &_HDNRA_skk2013_tsbf_nabt_cpp, 2},
+    {"_HDNRA_zzz2020_ts_2cnrt_cpp", (DL_FUNC) &_HDNRA_zzz2020_ts_2cnrt_cpp, 2},
+    {"_HDNRA_zzz2023_tsbf_2cnrt_cpp", (DL_FUNC) &_HDNRA_zzz2023_tsbf_2cnrt_cpp, 2},
+    {"_HDNRA_s2007_ks_nabt_cpp", (DL_FUNC) &_HDNRA_s2007_ks_nabt_cpp, 3},
+    {"_HDNRA_fhw2004_glht_nabt_cpp", (DL_FUNC) &_HDNRA_fhw2004_glht_nabt_cpp, 5},
+    {"_HDNRA_sf2006_glht_nabt_cpp", (DL_FUNC) &_HDNRA_sf2006_glht_nabt_cpp, 5},
+    {"_HDNRA_ys2012_glht_nabt_cpp", (DL_FUNC) &_HDNRA_ys2012_glht_nabt_cpp, 5},
+    {"_HDNRA_zgz2017_glhtbf_nabt_cpp", (DL_FUNC) &_HDNRA_zgz2017_glhtbf_nabt_cpp, 4},
+    {"_HDNRA_zgz2017_glht_2cnrt_cpp", (DL_FUNC) &_HDNRA_zgz2017_glht_2cnrt_cpp, 4},
+    {"_HDNRA_zzg2022_glhtbf_2cnrt_cpp", (DL_FUNC) &_HDNRA_zzg2022_glhtbf_2cnrt_cpp, 4},
+    {"_HDNRA_zz2022_glht_3cnrt_cpp", (DL_FUNC) &_HDNRA_zz2022_glht_3cnrt_cpp, 4},
+    {"_HDNRA_zz2022_glhtbf_3cnrt_cpp", (DL_FUNC) &_HDNRA_zz2022_glhtbf_3cnrt_cpp, 4},
+    {"_HDNRA_zzz2022_glht_2cnrt_cpp", (DL_FUNC) &_HDNRA_zzz2022_glht_2cnrt_cpp, 5},
     {NULL, NULL, 0}
 };
 
