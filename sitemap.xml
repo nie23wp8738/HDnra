@@ -1,102 +1,36 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>/404.html</loc>
-  </url>
-  <url>
-    <loc>/CODE_OF_CONDUCT.html</loc>
-  </url>
-  <url>
-    <loc>/LICENSE.html</loc>
-  </url>
-  <url>
-    <loc>/authors.html</loc>
-  </url>
-  <url>
-    <loc>/index.html</loc>
-  </url>
-  <url>
-    <loc>/news/index.html</loc>
-  </url>
-  <url>
-    <loc>/reference/BS1996.TS.NART.html</loc>
-  </url>
-  <url>
-    <loc>/reference/COVID19.html</loc>
-  </url>
-  <url>
-    <loc>/reference/CQ2010.TSBF.NABT.html</loc>
-  </url>
-  <url>
-    <loc>/reference/FHW2004.GLHT.NABT.html</loc>
-  </url>
-  <url>
-    <loc>/reference/HDNRA-package.html</loc>
-  </url>
-  <url>
-    <loc>/reference/NRtest.object.html</loc>
-  </url>
-  <url>
-    <loc>/reference/S2007.ks.NABT.html</loc>
-  </url>
-  <url>
-    <loc>/reference/SD2008.TS.NABT.html</loc>
-  </url>
-  <url>
-    <loc>/reference/SF2006.GLHT.NABT.html</loc>
-  </url>
-  <url>
-    <loc>/reference/SKK2013.TSBF.NABT.html</loc>
-  </url>
-  <url>
-    <loc>/reference/YS2012.GLHT.NABT.html</loc>
-  </url>
-  <url>
-    <loc>/reference/ZGZ2017.GLHT.2cNRT.html</loc>
-  </url>
-  <url>
-    <loc>/reference/ZGZ2017.GLHTBF.NABT.html</loc>
-  </url>
-  <url>
-    <loc>/reference/ZGZC2020.TS.2cNRT.html</loc>
-  </url>
-  <url>
-    <loc>/reference/ZWZ2023.TSBF.2cNRT.html</loc>
-  </url>
-  <url>
-    <loc>/reference/ZZ2022.GLHT.3cNRT.html</loc>
-  </url>
-  <url>
-    <loc>/reference/ZZ2022.GLHTBF.3cNRT.html</loc>
-  </url>
-  <url>
-    <loc>/reference/ZZ2022.TS.3cNRT.html</loc>
-  </url>
-  <url>
-    <loc>/reference/ZZ2022.TSBF.3cNRT.html</loc>
-  </url>
-  <url>
-    <loc>/reference/ZZG2022.GLHTBF.2cNRT.html</loc>
-  </url>
-  <url>
-    <loc>/reference/ZZGZ2021.TSBF.2cNRT.html</loc>
-  </url>
-  <url>
-    <loc>/reference/ZZZ2020.TS.2cNRT.html</loc>
-  </url>
-  <url>
-    <loc>/reference/ZZZ2022.GLHT.2cNRT.html</loc>
-  </url>
-  <url>
-    <loc>/reference/ZZZ2023.TSBF.2cNRT.html</loc>
-  </url>
-  <url>
-    <loc>/reference/corneal.html</loc>
-  </url>
-  <url>
-    <loc>/reference/index.html</loc>
-  </url>
-  <url>
-    <loc>/reference/print.NRtest.html</loc>
-  </url>
+<urlset xmlns = 'http://www.sitemaps.org/schemas/sitemap/0.9'>
+<url><loc>/404.html</loc></url>
+<url><loc>/CODE_OF_CONDUCT.html</loc></url>
+<url><loc>/LICENSE.html</loc></url>
+<url><loc>/authors.html</loc></url>
+<url><loc>/index.html</loc></url>
+<url><loc>/news/index.html</loc></url>
+<url><loc>/reference/BS1996.TS.NART.html</loc></url>
+<url><loc>/reference/COVID19.html</loc></url>
+<url><loc>/reference/CQ2010.TSBF.NABT.html</loc></url>
+<url><loc>/reference/FHW2004.GLHT.NABT.html</loc></url>
+<url><loc>/reference/HDNRA-package.html</loc></url>
+<url><loc>/reference/NRtest.object.html</loc></url>
+<url><loc>/reference/S2007.ks.NABT.html</loc></url>
+<url><loc>/reference/SD2008.TS.NABT.html</loc></url>
+<url><loc>/reference/SF2006.GLHT.NABT.html</loc></url>
+<url><loc>/reference/SKK2013.TSBF.NABT.html</loc></url>
+<url><loc>/reference/YS2012.GLHT.NABT.html</loc></url>
+<url><loc>/reference/ZGZ2017.GLHT.2cNRT.html</loc></url>
+<url><loc>/reference/ZGZ2017.GLHTBF.NABT.html</loc></url>
+<url><loc>/reference/ZGZC2020.TS.2cNRT.html</loc></url>
+<url><loc>/reference/ZWZ2023.TSBF.2cNRT.html</loc></url>
+<url><loc>/reference/ZZ2022.GLHT.3cNRT.html</loc></url>
+<url><loc>/reference/ZZ2022.GLHTBF.3cNRT.html</loc></url>
+<url><loc>/reference/ZZ2022.TS.3cNRT.html</loc></url>
+<url><loc>/reference/ZZ2022.TSBF.3cNRT.html</loc></url>
+<url><loc>/reference/ZZG2022.GLHTBF.2cNRT.html</loc></url>
+<url><loc>/reference/ZZGZ2021.TSBF.2cNRT.html</loc></url>
+<url><loc>/reference/ZZZ2020.TS.2cNRT.html</loc></url>
+<url><loc>/reference/ZZZ2022.GLHT.2cNRT.html</loc></url>
+<url><loc>/reference/ZZZ2023.TSBF.2cNRT.html</loc></url>
+<url><loc>/reference/corneal.html</loc></url>
+<url><loc>/reference/index.html</loc></url>
+<url><loc>/reference/print.NRtest.html</loc></url>
 </urlset>
+
