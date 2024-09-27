@@ -738,7 +738,7 @@ double sf2006_glht_nabt_cpp(List Y, const arma::mat &X, const arma::mat &C, cons
   }
 
   // Apply regularization to XtX for numerical stability
-  arma::mat XtXinv = cholesky_inverse(X.t() * X + arma::eye(X.n_cols, X.n_cols) * 1e-10);
+  arma::mat XtXinv = cholesky_inverse(X.t() * X);
   arma::mat H = X * XtXinv * C.t() * cholesky_inverse(C * XtXinv * C.t()) * C * XtXinv * X.t();
   arma::mat P = X * XtXinv * X.t();
   arma::mat I = arma::eye(ss, ss); // Identity matrix
@@ -758,12 +758,6 @@ double sf2006_glht_nabt_cpp(List Y, const arma::mat &X, const arma::mat &C, cons
     arma::mat R1 = H1 * Ymat * Ymat.t();
     trSe = arma::trace((I - P) * Ymat * Ymat.t());
     trSe2 = arma::trace(R1 * R1);
-  }
-
-  // Avoid divide by zero issues
-  if ((ss - k) == 0 || p == 0) {
-    Rcpp::Rcerr << "Warning: division by zero encountered!" << std::endl;
-    return NA_REAL; // Return NA if division by zero would occur
   }
 
   // Compute a2 and TSF
@@ -796,13 +790,20 @@ arma::vec ys2012_glht_nabt_cpp(const Rcpp::List& Y, const arma::mat& X, const ar
     Ymat.rows(ind[i], ind[i + 1] - 1) = yi;
   }
 
-  // Compute XtX and its inverse using Cholesky decomposition
+  // Handle zero rows by adding small perturbation to avoid NaN
+  Ymat.each_row([&](arma::rowvec& row) {
+    if (arma::all(row == 0)) {
+      row.fill(1e-10);  // Assign small value to zero rows
+    }
+  });
+
+  // Compute XtX and its inverse using Cholesky decomposition with regularization
   arma::mat XtX = X.t() * X;
-  arma::mat XtXinv = cholesky_inverse(XtX);
+  arma::mat XtXinv = cholesky_inverse(XtX + arma::eye(X.n_cols, X.n_cols) * 1e-10); // Regularization to avoid singular matrix
 
   // Precompute XtXinv * C.t() and C * XtXinv * C.t() * inv
   arma::mat XtXinvC = XtXinv * C.t();
-  arma::mat invC_XtXinvC = cholesky_inverse(C * XtXinvC);
+  arma::mat invC_XtXinvC = cholesky_inverse(C * XtXinvC + arma::eye(q, q) * 1e-10); // Regularization for stability
 
   // Compute H matrix
   arma::mat H = X * XtXinvC * invC_XtXinvC * XtXinvC.t() * X.t();
@@ -1266,6 +1267,13 @@ arma::vec zzz2022_glht_2cnrt_cpp(const Rcpp::List& Y, const arma::mat& X, const 
     arma::mat yi = Y[i];
     Ymat.rows(ind[i], ind[i + 1] - 1) = yi;
   }
+
+  // Handle zero rows by adding small perturbation to avoid NaN
+  Ymat.each_row([&](arma::rowvec& row) {
+    if (arma::all(row == 0)) {
+      row.fill(1e-10);  // Assign small value to zero rows
+    }
+  });
 
   // Calculate XtXinv using Cholesky decomposition
   arma::mat XtX = X.t() * X;
