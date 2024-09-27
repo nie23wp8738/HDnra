@@ -723,41 +723,57 @@ double fhw2004_glht_nabt_cpp(List Y, const arma::mat &X, const arma::mat &C, con
 double sf2006_glht_nabt_cpp(List Y, const arma::mat &X, const arma::mat &C, const arma::vec &n, int p) {
   int k = Y.size(); // number of classes
   int q = rank(C);
-  int ss = sum(n);
-  arma::mat Ymat(ss, p);
+  int ss = sum(n); // total sample size
+  arma::mat Ymat(ss, p); // initialize Y matrix
 
+  // Cumulative index for splitting Y
   arma::vec index = cumsum(n);
-  arma::vec ind = zeros(k + 1);
+  arma::vec ind = arma::zeros(k + 1);
   std::copy(index.begin(), index.end(), ind.begin() + 1);
+
+  // Fill Ymat with class data from list Y
   for (int i = 0; i < k; i++) {
     arma::mat yi = Y[i];
     Ymat.rows(ind[i], ind[i + 1] - 1) = yi;
   }
 
-  arma::mat XtXinv = cholesky_inverse(X.t() * X);
+  // Apply regularization to XtX for numerical stability
+  arma::mat XtXinv = cholesky_inverse(X.t() * X + arma::eye(X.n_cols, X.n_cols) * 1e-10);
   arma::mat H = X * XtXinv * C.t() * cholesky_inverse(C * XtXinv * C.t()) * C * XtXinv * X.t();
   arma::mat P = X * XtXinv * X.t();
-  arma::mat I = eye(ss, ss);
+  arma::mat I = arma::eye(ss, ss); // Identity matrix
 
-  double trSh,trSe, trSe2;
+  double trSh, trSe, trSe2;
+
   if (p < ss) {
-    // Calculate Tnp
+    // If the number of features is less than total samples
     trSh = arma::trace(Ymat.t() * H * Ymat);
     arma::mat Se = Ymat.t() * (I - P) * Ymat;
     trSe = arma::trace(Se);
-    trSe2 = arma::trace(Se*Se);
-  }else{
-    trSh = arma::trace(H * Ymat*Ymat.t());
-    arma::mat H1 = arma::eye(ss, ss) - P;
-    arma::mat R1 = H1*Ymat*Ymat.t();
-    trSe = arma::trace((I - P) * Ymat*Ymat.t());
-    trSe2 = arma::trace(R1*R1);
+    trSe2 = arma::trace(Se * Se);
+  } else {
+    // If the number of features is greater than or equal to total samples
+    trSh = arma::trace(H * Ymat * Ymat.t());
+    arma::mat H1 = I - P;
+    arma::mat R1 = H1 * Ymat * Ymat.t();
+    trSe = arma::trace((I - P) * Ymat * Ymat.t());
+    trSe2 = arma::trace(R1 * R1);
   }
 
-  double a2 = (trSe2 - pow(trSe, 2) / (ss - k)) / (ss - k - 1) / (ss - k + 2) / p;
-  double TSF = (trSh / sqrt(p) - q * trSe / sqrt(ss - k) / sqrt((ss - k) * p)) / sqrt(2 * q * a2 * (1 + q / (ss - k)));
+  // Avoid divide by zero issues
+  if ((ss - k) == 0 || p == 0) {
+    Rcpp::Rcerr << "Warning: division by zero encountered!" << std::endl;
+    return NA_REAL; // Return NA if division by zero would occur
+  }
+
+  // Compute a2 and TSF
+  double a2 = (trSe2 - std::pow(trSe, 2) / (ss - k)) / (ss - k - 1) / (ss - k + 2) / p;
+  double TSF = (trSh / std::sqrt(p) - q * trSe / std::sqrt(ss - k) / std::sqrt((ss - k) * p)) /
+    std::sqrt(2 * q * a2 * (1 + q / (ss - k)));
+
   return TSF;
 }
+
 
 // Test proposed by Yamada and Srivastava (2012)
 // [[Rcpp::export]]
@@ -1253,11 +1269,11 @@ arma::vec zzz2022_glht_2cnrt_cpp(const Rcpp::List& Y, const arma::mat& X, const 
 
   // Calculate XtXinv using Cholesky decomposition
   arma::mat XtX = X.t() * X;
-  arma::mat XtXinv = cholesky_inverse(XtX);
+  arma::mat XtXinv = cholesky_inverse(XtX + arma::eye(X.n_cols, X.n_cols) * 1e-10); // Regularization
 
   // Precompute XtXinv * C.t() and C * XtXinv * C.t() * inv
   arma::mat XtXinvC = XtXinv * C.t();
-  arma::mat invC_XtXinvC = cholesky_inverse(C * XtXinvC);
+  arma::mat invC_XtXinvC = cholesky_inverse(C * XtXinvC + arma::eye(q, q) * 1e-10); // Regularization
 
   // Compute H matrix
   arma::mat H = X * XtXinvC * invC_XtXinvC * XtXinvC.t() * X.t();
