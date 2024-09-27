@@ -82,8 +82,8 @@ These components are included depending on the specifics of the hypothesis test 
 \section{Methods}{
 
 The class has the following methods:
-\itemize{
-\item{\code{\link{print.NRtest}}} {Printing the contents of the NRtest object in a human-readable form.}
+\describe{
+\item{\code{\link{print.NRtest}}}{Printing the contents of the NRtest object in a human-readable form.}
 }
 }
 

@@ -49,8 +49,8 @@
 
 #' @section Methods:
 #' The class has the following methods:
-#' \itemize{
-#'   \item{\code{\link{print.NRtest}}} {Printing the contents of the NRtest object in a human-readable form.}
+#' \describe{
+#'   \item{\code{\link{print.NRtest}}}{Printing the contents of the NRtest object in a human-readable form.}
 #' }
 
 #' @examples
