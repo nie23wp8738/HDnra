@@ -1,5 +1,6 @@
 // [[Rcpp::depends(RcppArmadillo)]]
 // [[Rcpp::plugins(cpp11)]]
+// [[Rcpp::plugins(openmp)]]
 // -*- mode: C++; c-indent-level: 4; c-basic-offset: 4; indent-tabs-mode: nil; -*-
 
 #include <RcppArmadillo.h>
@@ -9,8 +10,6 @@
 
 using namespace Rcpp;
 using namespace arma;
-
-// [[Rcpp::depends(RcppArmadillo)]]
 
 // Helper function to compute inverse using Cholesky decomposition
 arma::mat cholesky_inverse(const arma::mat &X) {
@@ -606,27 +605,67 @@ arma::vec s2007_ks_nabt_cpp(List Y, const arma::vec &n, int p) {
   int ss = sum(n);
   int e = ss - g;
   arma::mat ybar(p, g);
-  arma::colvec poolybar(p, fill::zeros);
-  arma::mat E(p, p, fill::zeros);
 
-  for (int i = 0; i < g; ++i) {
+  // Precompute necessary values
+  arma::vec index = arma::cumsum(n);
+  arma::vec ind = arma::zeros(g + 1);
+  std::copy(index.begin(), index.end(), ind.begin() + 1);
+  arma::mat Ymat(ss, p, arma::fill::zeros);
+
+  #pragma omp parallel for
+  for (int i = 0; i < g; i++) {
     arma::mat yi = Y[i];
-    arma::mat y = yi.t();
-    arma::colvec mu = arma::mean(y, 1);
+    Ymat.rows(ind[i], ind[i + 1] - 1) = yi;
+    arma::colvec mu = arma::mean(yi.t(), 1);
     ybar.col(i) = mu;
-    poolybar += n(i) * mu;
-    arma::mat z = y - arma::repmat(mu, 1, n(i));
-    E += z * z.t();
   }
 
-  poolybar /= ss;
-  arma::mat H(p, p, fill::zeros);
-  for (int i = 0; i < g; ++i) {
-    H += n(i) * (ybar.col(i) - poolybar) * (ybar.col(i) - poolybar).t();
+  arma::mat P(ss,ss,fill::zeros);
+  arma::mat X(ss,g,fill::zeros);
+  arma::vec index1 = arma::cumsum(n);
+
+  arma::vec index0(index1.n_elem + 1);
+  index0(0) = 0;
+  index0.subvec(1, index1.n_elem) = index1;
+
+  for(int i=0;i<g;++i){
+    arma::mat I (n(i), n(i),arma::fill::ones);
+    P.submat(index0(i), index0(i), (index0(i + 1)-1), (index0(i + 1)-1)) = I / n(i);
+    arma::colvec v(n(i), arma::fill::ones);
+    X.submat(index0(i),i,(index0(i + 1)-1),i) = v;
   }
 
-  double tnp = (trace(H) / h - trace(E) / e) / sqrt(ss - 1);
-  double a = (trace(E * E) - pow(trace(E), 2) / e) / (e + 2) / (e - 1);
+
+  arma::mat identity = arma::eye(g - 1, g - 1);
+  arma::mat column = -arma::ones<arma::mat>(g - 1, 1);
+  arma::mat C = join_horiz(identity, column);
+  arma::mat XtXinv = diagmat(1/n);
+  arma::mat XtXinvCt = X*XtXinv*C.t();
+
+  arma::mat Hmat = XtXinvCt*cholesky_inverse(C*XtXinv*C.t())*XtXinvCt.t();
+
+
+  arma::mat H1 = arma::eye(ss, ss) - P;
+
+
+  double trH, trE,trE2;
+  if (p < ss) {
+    arma::mat E = Ymat.t() * H1 * Ymat;
+    arma::mat H = Ymat.t() * Hmat * Ymat;
+    trH = arma::trace(H);
+    trE= arma::trace(E);
+    trE2 = arma::trace(E*E);
+  }else{
+    arma::mat E1 =  H1 * Ymat*Ymat.t();
+    arma::mat H1 =  Hmat * Ymat*Ymat.t();
+    trH = arma::trace(H1);
+    trE= arma::trace(E1);
+    trE2 = arma::trace(E1*E1);
+  }
+
+
+  double tnp = (trH / h - trE / e) / sqrt(ss - 1);
+  double a = (trE2 - pow(trE, 2) / e) / (e + 2) / (e - 1);
   double sigmahat2 = 2 * a / e / h;
   double sigmahat = sqrt(sigmahat2);
 
@@ -655,14 +694,27 @@ double fhw2004_glht_nabt_cpp(List Y, const arma::mat &X, const arma::mat &C, con
 
   arma::mat XtXinv = cholesky_inverse(X.t() * X);
   arma::mat H = X * XtXinv * C.t() * cholesky_inverse(C * XtXinv * C.t()) * C * XtXinv * X.t();
-  arma::mat Sh = Ymat.t() * H * Ymat;
+
   arma::mat P = X * XtXinv * X.t();
   arma::mat I = eye(ss, ss);
-  arma::mat Se = Ymat.t() * (I - P) * Ymat;
 
-  double trSe2 = trace(Se * Se);
-  double sigmaD = sqrt(2 * q * (trSe2 / pow(ss - k, 2) - pow(trace(Se), 2) / pow(ss - k, 3)) / p) / (trace(Se) / (ss - k) / p);
-  double TFHW = sqrt(p) * ((ss - k) * trace(Sh) / trace(Se) - q) / sigmaD;
+  double trSh,trSe, trSe2;
+  if (p < ss) {
+    // Calculate Tnp
+    trSh = arma::trace(Ymat.t() * H * Ymat);
+    arma::mat Se = Ymat.t() * (I - P) * Ymat;
+    trSe = arma::trace(Se);
+    trSe2 = arma::trace(Se*Se);
+  }else{
+    trSh = arma::trace(H * Ymat*Ymat.t());
+    arma::mat H1 = arma::eye(ss, ss) - P;
+    arma::mat R1 = H1*Ymat*Ymat.t();
+    trSe = arma::trace((I - P) * Ymat*Ymat.t());
+    trSe2 = arma::trace(R1*R1);
+  }
+
+  double sigmaD = sqrt(2 * q * (trSe2 / pow(ss - k, 2) - pow(trSe, 2) / pow(ss - k, 3)) / p) / (trSe / (ss - k) / p);
+  double TFHW = sqrt(p) * ((ss - k) * trSh / trSe - q) / sigmaD;
   return TFHW;
 }
 
@@ -684,14 +736,26 @@ double sf2006_glht_nabt_cpp(List Y, const arma::mat &X, const arma::mat &C, cons
 
   arma::mat XtXinv = cholesky_inverse(X.t() * X);
   arma::mat H = X * XtXinv * C.t() * cholesky_inverse(C * XtXinv * C.t()) * C * XtXinv * X.t();
-  arma::mat Sh = Ymat.t() * H * Ymat;
   arma::mat P = X * XtXinv * X.t();
   arma::mat I = eye(ss, ss);
-  arma::mat Se = Ymat.t() * (I - P) * Ymat;
 
-  double trSe2 = trace(Se * Se);
-  double a2 = (trSe2 - pow(trace(Se), 2) / (ss - k)) / (ss - k - 1) / (ss - k + 2) / p;
-  double TSF = (trace(Sh) / sqrt(p) - q * trace(Se) / sqrt(ss - k) / sqrt((ss - k) * p)) / sqrt(2 * q * a2 * (1 + q / (ss - k)));
+  double trSh,trSe, trSe2;
+  if (p < ss) {
+    // Calculate Tnp
+    trSh = arma::trace(Ymat.t() * H * Ymat);
+    arma::mat Se = Ymat.t() * (I - P) * Ymat;
+    trSe = arma::trace(Se);
+    trSe2 = arma::trace(Se*Se);
+  }else{
+    trSh = arma::trace(H * Ymat*Ymat.t());
+    arma::mat H1 = arma::eye(ss, ss) - P;
+    arma::mat R1 = H1*Ymat*Ymat.t();
+    trSe = arma::trace((I - P) * Ymat*Ymat.t());
+    trSe2 = arma::trace(R1*R1);
+  }
+
+  double a2 = (trSe2 - pow(trSe, 2) / (ss - k)) / (ss - k - 1) / (ss - k + 2) / p;
+  double TSF = (trSh / sqrt(p) - q * trSe / sqrt(ss - k) / sqrt((ss - k) * p)) / sqrt(2 * q * a2 * (1 + q / (ss - k)));
   return TSF;
 }
 
@@ -709,13 +773,14 @@ arma::vec ys2012_glht_nabt_cpp(const Rcpp::List& Y, const arma::mat& X, const ar
 
   arma::mat Ymat(ss, p, arma::fill::zeros);
 
+  // Parallelize data filling for performance optimization
 #pragma omp parallel for
   for (int i = 0; i < k; i++) {
     arma::mat yi = Y[i];
     Ymat.rows(ind[i], ind[i + 1] - 1) = yi;
   }
 
-  // Calculate XtXinv using Cholesky decomposition
+  // Compute XtX and its inverse using Cholesky decomposition
   arma::mat XtX = X.t() * X;
   arma::mat XtXinv = cholesky_inverse(XtX);
 
@@ -726,28 +791,39 @@ arma::vec ys2012_glht_nabt_cpp(const Rcpp::List& Y, const arma::mat& X, const ar
   // Compute H matrix
   arma::mat H = X * XtXinvC * invC_XtXinvC * XtXinvC.t() * X.t();
 
-  // Calculate Sh and Se
+  // Calculate Sh and Se (Error and projection matrices)
   arma::mat Ymat_t = Ymat.t();
   arma::mat Sh = Ymat_t * H * Ymat;
   arma::mat P = X * XtXinv * X.t();
   arma::mat Se = Ymat_t * (arma::eye(ss, ss) - P) * Ymat;
 
-  // Calculate Sigma and its inverse diagonal
+  // Calculate Sigma and its inverse diagonal (if needed)
   arma::mat Sigma = Se / (ss - k);
   arma::vec Sigma_diag = Sigma.diag();
   arma::vec invSigma_diag = 1 / Sigma_diag;
   arma::mat invD = arma::diagmat(invSigma_diag);
 
-  // Calculate Tnp
-  double Tnp = arma::trace(Sh.each_col() % invSigma_diag) / (p * q);
+  double Tnp, trRhat2, TYS;
 
-  // Calculate trRhat2 and cpn
-  arma::mat invDSigma = invD * Sigma;
-  double trRhat2 = arma::trace(invDSigma * invDSigma);
+  // Different paths based on p and ss
+  if (p < ss) {
+    // Path for p < ss
+    Tnp = arma::trace(Sh.each_col() % invSigma_diag) / (p * q);
+    arma::mat invDSigma = invD * Sigma;
+    trRhat2 = arma::trace(invDSigma * invDSigma);
+  } else {
+    // Path for p >= ss (similar to zzz2022_glht_2cnrt_cpp)
+    Tnp = arma::trace(H * Ymat * invD * Ymat_t) / (p * q);
+    arma::mat H1 = arma::eye(ss, ss) - P;
+    arma::mat R1 = H1 * Ymat * invD * Ymat_t;
+    trRhat2 = arma::trace(R1 * R1) / ((ss - k) * (ss - k));
+  }
+
+  // Calculate cpn based on trRhat2 (common part)
   double cpn = 1 + trRhat2 / sqrt(pow(p, 3));
 
-  // Calculate TYS
-  double TYS = (p * q * Tnp - (ss - k) * p * q / (ss - k - 2)) / sqrt(2 * q * (trRhat2 - p * p / (ss - k)) * cpn);
+  // Calculate TYS statistic (using trRhat2 and cpn)
+  TYS = (p * q * Tnp - (ss - k) * p * q / (ss - k - 2)) / sqrt(2 * q * (trRhat2 - p * p / (ss - k)) * cpn);
 
   // Return the results
   arma::vec values(2);
@@ -851,22 +927,50 @@ arma::vec zgz2017_glht_2cnrt_cpp(List Y, const arma::mat &tG, const arma::vec &n
   arma::mat D = diagmat(1 / n);
   arma::mat H = tG.t() * cholesky_inverse(tG * D * tG.t()) * tG;
   arma::mat hatM(p, k);
-  arma::mat S(p, p, fill::zeros);
 
-  for (int i = 0; i < k; ++i) {
+  // Precompute necessary values
+  arma::vec index = arma::cumsum(n);
+  arma::vec ind = arma::zeros(k + 1);
+  std::copy(index.begin(), index.end(), ind.begin() + 1);
+  arma::mat Ymat(ss, p, arma::fill::zeros);
+
+#pragma omp parallel for
+  for (int i = 0; i < k; i++) {
     arma::mat yi = Y[i];
-    arma::mat y = yi.t();
-    arma::colvec mu = arma::mean(y, 1);
+    Ymat.rows(ind[i], ind[i + 1] - 1) = yi;
+    arma::colvec mu = arma::mean(yi.t(), 1);
     hatM.col(i) = mu;
-    arma::mat z = y - arma::repmat(mu, 1, n(i));
-    S += z * z.t();
   }
 
-  S = S / (ss - k);
-  double Tnp = trace(hatM * H * hatM.t());
 
-  double trSn = arma::trace(S); // tr(Sigmahat^2)
-  double trSn2 = arma::accu(S % S); // tr(Sigmahat^2) ##element-wise multiplication
+  arma::mat P(ss,ss,fill::zeros);
+  arma::vec index1 = arma::cumsum(n);
+
+  arma::vec index0(index1.n_elem + 1);
+  index0(0) = 0;
+  index0.subvec(1, index1.n_elem) = index1;
+
+  for(int i=0;i<k;++i){
+    arma::mat I (n(i), n(i),arma::fill::ones);
+    P.submat(index0(i), index0(i), (index0(i + 1)-1), (index0(i + 1)-1)) = I / n(i);
+  }
+
+  arma::mat H1 = arma::eye(ss, ss) - P;
+
+  double Tnp, trSn,trSn2;
+  if (p < ss) {
+    // Calculate Tnp
+    Tnp = trace(hatM * H * hatM.t());
+    // Calculate trRhat2 and trR2
+    arma::mat S = Ymat.t() * H1 * Ymat/(ss-k);
+    trSn= arma::trace(S);
+    trSn2 = arma::trace(S*S);
+  }else{
+    Tnp = trace(H * hatM.t()*hatM);
+    arma::mat S1 =  H1 * Ymat*Ymat.t()/(ss-k);
+    trSn= arma::trace(S1);
+    trSn2 = arma::trace(S1*S1);
+  }
   double uA = (ss - k) * (ss - k + 1) * (pow(trSn, 2) - 2 * trSn2 / (ss - k + 1)) / (ss - k - 1) / (ss - k + 2);
   double uB = pow(ss - k, 2) * (trSn2 - pow(trSn, 2) / (ss - k)) / (ss - k - 1) / (ss - k + 2);
 
@@ -1162,6 +1266,7 @@ arma::vec zzz2022_glht_2cnrt_cpp(const Rcpp::List& Y, const arma::mat& X, const 
   arma::mat Ymat_t = Ymat.t();
   arma::mat Sh = Ymat_t * H * Ymat;
   arma::mat P = X * XtXinv * X.t();
+
   arma::mat Se = Ymat_t * (arma::eye(ss, ss) - P) * Ymat;
 
   // Calculate Sigma and its inverse diagonal
@@ -1170,12 +1275,19 @@ arma::vec zzz2022_glht_2cnrt_cpp(const Rcpp::List& Y, const arma::mat& X, const 
   arma::vec invSigma_diag = 1 / Sigma_diag;
   arma::mat invD = arma::diagmat(invSigma_diag);
 
-  // Calculate Tnp
-  double Tnp = arma::trace(Sh.each_col() % invSigma_diag) / (p * q);
-
-  // Calculate trRhat2 and trR2
-  arma::mat invDSigma = invD * Sigma;
-  double trRhat2 = arma::trace(invDSigma * invDSigma);
+  double Tnp, trRhat2;
+  if (p < ss) {
+    // Calculate Tnp
+    Tnp = arma::trace(Sh.each_col() % invSigma_diag) / (p * q);
+    // Calculate trRhat2 and trR2
+    arma::mat invDSigma = invD * Sigma;
+    trRhat2 = arma::trace(invDSigma * invDSigma);
+  }else{
+    Tnp = arma::trace(H * Ymat * invD *Ymat_t) / (p * q);
+    arma::mat H1 = arma::eye(ss, ss) - P;
+    arma::mat R1 = H1*Ymat*invD*Ymat_t;
+    trRhat2 = arma::trace(R1*R1)/((ss-k)*(ss-k));
+  }
   double trR2 = (ss - k) * (ss - k) * (trRhat2 - p * p / (ss - k)) / ((ss - k - 1) * (ss - k + 2));
   double hatd = p * p * q / trR2;
 
@@ -1185,6 +1297,5 @@ arma::vec zzz2022_glht_2cnrt_cpp(const Rcpp::List& Y, const arma::mat& X, const 
   values(1) = hatd;
   return values;
 }
-
 
 
