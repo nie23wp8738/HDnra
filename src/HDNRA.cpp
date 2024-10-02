@@ -791,11 +791,11 @@ arma::vec ys2012_glht_nabt_cpp(const Rcpp::List& Y, const arma::mat& X, const ar
 
   // Compute XtX and its inverse using Cholesky decomposition with regularization
   arma::mat XtX = X.t() * X;
-  arma::mat XtXinv = cholesky_inverse(XtX); // Regularization to avoid singular matrix
+  arma::mat XtXinv = arma::inv(XtX + arma::eye(XtX.n_rows, XtX.n_cols) * 1e-10); // Regularization to avoid singular matrix
 
   // Precompute XtXinv * C.t() and C * XtXinv * C.t() * inv
   arma::mat XtXinvC = XtXinv * C.t();
-  arma::mat invC_XtXinvC = cholesky_inverse(C * XtXinvC); // Regularization for stability
+  arma::mat invC_XtXinvC = arma::inv(C * XtXinvC + arma::eye(C.n_rows, C.n_cols) * 1e-10); // Regularization for stability
 
   // Compute H matrix
   arma::mat H = X * XtXinvC * invC_XtXinvC * XtXinvC.t() * X.t();
@@ -811,7 +811,7 @@ arma::vec ys2012_glht_nabt_cpp(const Rcpp::List& Y, const arma::mat& X, const ar
   arma::vec Sigma_diag = Sigma.diag();
 
   // Prevent very small values in Sigma_diag to avoid NaN issues
-  Sigma_diag.elem(arma::find(Sigma_diag < pow(10, -10))).fill(pow(10, -10));
+  Sigma_diag = arma::clamp(Sigma_diag, 1e-10, arma::datum::inf);
 
   arma::vec invSigma_diag = 1 / Sigma_diag;
   arma::mat invD = arma::diagmat(invSigma_diag);
