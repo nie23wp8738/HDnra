@@ -768,6 +768,7 @@ double sf2006_glht_nabt_cpp(List Y, const arma::mat &X, const arma::mat &C, cons
   return TSF;
 }
 
+
 // Test proposed by Yamada and Srivastava (2012)
 // [[Rcpp::export]]
 arma::vec ys2012_glht_nabt_cpp(const Rcpp::List& Y, const arma::mat& X, const arma::mat& C, const arma::vec& n, int p) {
