@@ -1286,7 +1286,7 @@ arma::vec zzz2022_glht_2cnrt_cpp(const Rcpp::List& Y, const arma::mat& X, const 
   // Calculate Sigma and its inverse diagonal
   arma::mat Sigma = Se / (ss - k);
   arma::vec Sigma_diag = Sigma.diag();
-  Sigma_diag.elem(arma::find(Sigma_diag < pow(10, -10))).fill(pow(10, -10)); // Prevent very small values
+  Sigma_diag = arma::clamp(Sigma_diag, 1e-10, arma::datum::inf);// Prevent very small values
   arma::vec invSigma_diag = 1 / Sigma_diag;
   arma::mat invD = arma::diagmat(invSigma_diag);
 
