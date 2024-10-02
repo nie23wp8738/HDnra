@@ -792,11 +792,11 @@ arma::vec ys2012_glht_nabt_cpp(const Rcpp::List& Y, const arma::mat& X, const ar
 
   // Compute XtX and its inverse using Cholesky decomposition with regularization
   arma::mat XtX = X.t() * X;
-  arma::mat XtXinv = arma::inv(XtX + arma::eye(XtX.n_rows, XtX.n_cols) * 1e-10); // Regularization to avoid singular matrix
+  arma::mat XtXinv = cholesky_inverse(XtX); // Regularization to avoid singular matrix
 
   // Precompute XtXinv * C.t() and C * XtXinv * C.t() * inv
   arma::mat XtXinvC = XtXinv * C.t();
-  arma::mat invC_XtXinvC = arma::inv(C * XtXinvC + arma::eye(C.n_rows, C.n_cols) * 1e-10); // Regularization for stability
+  arma::mat invC_XtXinvC = cholesky_inverse(C * XtXinvC); // Regularization for stability
 
   // Compute H matrix
   arma::mat H = X * XtXinvC * invC_XtXinvC * XtXinvC.t() * X.t();
