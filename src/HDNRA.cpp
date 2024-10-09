@@ -1268,11 +1268,11 @@ arma::vec zzz2022_glht_2cnrt_cpp(const Rcpp::List& Y, const arma::mat& X, const 
 
   // Calculate XtXinv using Cholesky decomposition
   arma::mat XtX = X.t() * X;
-  arma::mat XtXinv = cholesky_inverse(XtX + arma::eye(X.n_cols, X.n_cols) * 1e-10); // Regularization removed
+  arma::mat XtXinv = cholesky_inverse(XtX); // Regularization removed
 
   // Precompute XtXinv * C.t() and C * XtXinv * C.t() * inv
   arma::mat XtXinvC = XtXinv * C.t();
-  arma::mat invC_XtXinvC = cholesky_inverse(C * XtXinvC + arma::eye(q, q) * 1e-10); // Regularization removed
+  arma::mat invC_XtXinvC = cholesky_inverse(C * XtXinvC); // Regularization removed
 
   // Compute H matrix
   arma::mat H = X * XtXinvC * invC_XtXinvC * XtXinvC.t() * X.t();
@@ -1286,7 +1286,7 @@ arma::vec zzz2022_glht_2cnrt_cpp(const Rcpp::List& Y, const arma::mat& X, const 
   // Calculate Sigma and its inverse diagonal
   arma::mat Sigma = Se / (ss - k);
   arma::vec Sigma_diag = Sigma.diag();
-  Sigma_diag.elem(find(Sigma_diag < pow(10, -10))).fill(pow(10, -10));// Prevent very small values
+  Sigma_diag = arma::clamp(Sigma_diag, 1e-10, arma::datum::inf);// Prevent very small values
   arma::vec invSigma_diag = 1 / Sigma_diag;
   arma::mat invD = arma::diagmat(invSigma_diag);
 
@@ -1304,8 +1304,23 @@ arma::vec zzz2022_glht_2cnrt_cpp(const Rcpp::List& Y, const arma::mat& X, const 
     trRhat2 = arma::trace(R1 * R1) / ((ss - k) * (ss - k));
   }
 
+  // Calculate trR2 and ensure it is positive
   double trR2 = (ss - k) * (ss - k) * (trRhat2 - p * p / (ss - k)) / ((ss - k - 1) * (ss - k + 2));
+  if (trR2 <= 1e-6) {
+    double adjustment = std::max(1e-6, 0.01 * fabs(trRhat2));
+    Rcpp::Rcout << "Warning: trR2 is very small or non-positive. Applying adaptive adjustment.\n";
+    trR2 += adjustment; // Apply adaptive adjustment to ensure trR2 is sufficiently positive
+  }
+
+
+
+  // Calculate degrees of freedom and ensure it is positive
   double hatd = p * p * q / trR2;
+  if (hatd <= 1e-6) {
+    Rcpp::Rcout << "Warning: Degrees of freedom (hatd) is non-positive. Applying adjustment.\n";
+    hatd = std::max(1e-6, 0.01 * fabs(hatd)); // Ensure hatd is positive, with an adaptive adjustment
+  }
+
 
   // Return the results
   arma::vec values(2);
