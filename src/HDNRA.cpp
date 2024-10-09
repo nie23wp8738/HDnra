@@ -33,7 +33,7 @@ double bs1996_ts_nart_cpp(const arma::mat &y1, const arma::mat &y2) {
   int n = n1 + n2 - 2;
   double invtau = double(n1 * n2) / (n1 + n2);
   double stat = arma::as_scalar((mu1 - mu2) * (mu1 - mu2).t());
-  arma::mat z = join_horiz(z1, z2);
+  arma::mat z = arma::join_horiz(z1, z2);
   arma::mat S;
 
   if (p <= n) {
@@ -71,6 +71,8 @@ arma::vec cq2010_tsbf_nabt_cpp(const arma::mat &y1, const arma::mat &y2) {
   int n1_2 = n1 - 2;
   int n2_2 = n2 - 2;
 
+  // Parallelize the first loop using OpenMP
+#pragma omp parallel for reduction(+:tempsum)
   for (int j = 0; j < n1; j++) {
     arma::rowvec y1_j = y1.row(j);
     for (int k = j + 1; k < n1; k++) {
@@ -83,6 +85,9 @@ arma::vec cq2010_tsbf_nabt_cpp(const arma::mat &y1, const arma::mat &y2) {
   double trsigma12hat = (tempsum + tempsum) / (n1 * n1_1);
   tempsum = 0.0;
   arma::rowvec y2sum = arma::sum(y2, 0); // add columns
+
+  // Parallelize the second loop using OpenMP
+#pragma omp parallel for reduction(+:tempsum)
   for (int j = 0; j < n2; j++) {
     arma::rowvec y2_j = y2.row(j);
     for (int k = j + 1; k < n2; k++) {
@@ -94,6 +99,9 @@ arma::vec cq2010_tsbf_nabt_cpp(const arma::mat &y1, const arma::mat &y2) {
 
   double trsigma22hat = (tempsum + tempsum) / (n2 * n2_1);
   tempsum = 0.0;
+
+  // Parallelize the third loop using OpenMP
+#pragma omp parallel for reduction(+:tempsum)
   for (int l = 0; l < n1; l++) {
     arma::rowvec y1_l = y1.row(l);
     arma::rowvec meanx1exl = (y1sum - y1_l) / n1_1;
