@@ -30,7 +30,8 @@ Imports:
     Rcpp,
     Rdpack,
     readr,
-    stats
+    stats,
+    utils
 Suggests: 
     devtools,
     dplyr,
