@@ -1,3 +1,5 @@
+#' @importFrom utils packageVersion
+
 .pkgenv <- new.env(parent = emptyenv())
 
 .onAttach <- function(...) {
