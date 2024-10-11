@@ -13,9 +13,9 @@ using namespace arma;
 
 // Helper function to compute inverse using Cholesky decomposition
 arma::mat cholesky_inverse(const arma::mat &X) {
-  arma::mat L = arma::chol(X, "lower");  // Returns upper triangular matrix
-  arma::mat Linv = arma::inv(L);  // Computes inverse of L
-  return Linv.t() * Linv;  // Matrix inverse
+  arma::mat L = arma::chol(X, "lower");  // Performs Cholesky decomposition, returns lower triangular matrix
+  arma::mat Linv = arma::inv(L);  // Computes the inverse of the lower triangular matrix L
+  return Linv.t() * Linv;  // Returns the inverse of the input matrix X
 }
 
 // Test proposed by Bai and Saranadasa (1996)
