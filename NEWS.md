@@ -6,6 +6,8 @@
 
 * Added an 'NRtest.object' to output an S3 class 'NRtest' for our package, and also constructed a corresponding print function to output the appropriate format.
 
+* Added a 'zzz.R' file to manage package startup messages and initialization.
+
 # HDNRA 1.0.0
 
 * Initial CRAN submission.
