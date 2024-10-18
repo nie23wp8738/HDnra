@@ -16,6 +16,12 @@ The main note is as follows:
 
     The installed size is 5.5Mb, with the `data` sub-directory taking up 4.9Mb. This is because the package contains necessary example datasets for the package functionality, and further compression or removal would affect user experience. These datasets are integral to the examples and testing procedures provided by the package.
 
+## Comments on previous submission
+
+1. Fixed LaTeX errors related to the use of `χ` by replacing it with `$\\chi$` in the Roxygen2 documentation, allowing proper PDF generation.
+2. Updated CRAN URL to use the canonical format `https://CRAN.R-project.org/package=HDNRA`.
+3. Cleaned up temporary files like `HDNRA-manual.tex`.
+
 ## Reverse dependencies
 
 `devtools::revdep()` showed that `HDNRA` is not currently a dependency of any other package.
