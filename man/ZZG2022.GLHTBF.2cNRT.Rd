@@ -2,7 +2,7 @@
 % Please edit documentation in R/ZZG2022.GLHTBF.2cNRT.R
 \name{ZZG2022.GLHTBF.2cNRT}
 \alias{ZZG2022.GLHTBF.2cNRT}
-\title{Normal-reference-test with two-cumulant (2-c) matched χ^2-approximation for GLHT problem under heteroscedasticity proposed by Zhang et al. (2022)}
+\title{Normal-reference-test with two-cumulant (2-c) matched $\\chi^2$-approximation for GLHT problem under heteroscedasticity proposed by Zhang et al. (2022)}
 \usage{
 ZZG2022.GLHTBF.2cNRT(Y,G,n,p)
 }
