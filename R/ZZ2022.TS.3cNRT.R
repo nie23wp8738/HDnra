@@ -1,5 +1,5 @@
 #' @title
-#' Normal-reference-test with three-cumulant (3-c) matched χ^2-approximation for two-sample problem proposed by Zhang and Zhu (2022)
+#' Normal-reference-test with three-cumulant (3-c) matched $\\chi^2$-approximation for two-sample problem proposed by Zhang and Zhu (2022)
 #' @description
 #' Zhang and Zhu (2022)'s test for testing equality of two-sample high-dimensional mean vectors with assuming that two covariance matrices are the same.
 #' @usage ZZ2022.TS.3cNRT(y1, y2)
