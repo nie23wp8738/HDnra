@@ -2,7 +2,7 @@
 % Please edit documentation in R/ZZ2022.GLHT.3cNRT.R
 \name{ZZ2022.GLHT.3cNRT}
 \alias{ZZ2022.GLHT.3cNRT}
-\title{Normal-reference-test with three-cumulant (3-c) matched χ^2-approximation for GLHT problem proposed by Zhu and Zhang (2022)}
+\title{Normal-reference-test with three-cumulant (3-c) matched $\\chi^2$-approximation for GLHT problem proposed by Zhu and Zhang (2022)}
 \usage{
 ZZ2022.GLHT.3cNRT(Y,G,n,p)
 }
