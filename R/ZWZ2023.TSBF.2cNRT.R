@@ -1,5 +1,5 @@
 #' @title
-#' Normal-reference-test with two-cumulant (2-c) matched χ^2-approximation for two-sample BF problem proposed by Zhu et al. (2023)
+#' Normal-reference-test with two-cumulant (2-c) matched $\\chi^2$-approximation for two-sample BF problem proposed by Zhu et al. (2023)
 #' @description
 #' Zhu et al. (2023)'s test for testing equality of two-sample high-dimensional mean vectors without assuming that two covariance matrices are the same.
 
