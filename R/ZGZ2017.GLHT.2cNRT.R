@@ -1,5 +1,5 @@
 #' @title
-#' Normal-reference-test with two-cumulant (2-c) matched χ^2-approximation for GLHT problem proposed Zhang et al. (2017)
+#' Normal-reference-test with two-cumulant (2-c) matched $\\chi^2$-approximation for GLHT problem proposed Zhang et al. (2017)
 #' @description
 #' Zhang et al. (2017)'s test for general linear hypothesis testing (GLHT) problem for high-dimensional data with assuming that underlying covariance matrices are the same.
 
