@@ -2,7 +2,7 @@
 % Please edit documentation in R/ZZZ2023.TSBF.2cNRT.R
 \name{ZZZ2023.TSBF.2cNRT}
 \alias{ZZZ2023.TSBF.2cNRT}
-\title{Normal-reference-test with two-cumulant (2-c) matched χ^2-approximation for two-sample BF problem proposed by Zhang et al. (2023)}
+\title{Normal-reference-test with two-cumulant (2-c) matched $\\chi^2$-approximation for two-sample BF problem proposed by Zhang et al. (2023)}
 \usage{
 ZZZ2023.TSBF.2cNRT(y1, y2, cutoff)
 }
