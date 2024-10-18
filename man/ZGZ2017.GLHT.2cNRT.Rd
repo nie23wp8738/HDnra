@@ -2,7 +2,7 @@
 % Please edit documentation in R/ZGZ2017.GLHT.2cNRT.R
 \name{ZGZ2017.GLHT.2cNRT}
 \alias{ZGZ2017.GLHT.2cNRT}
-\title{Normal-reference-test with two-cumulant (2-c) matched χ^2-approximation for GLHT problem proposed Zhang et al. (2017)}
+\title{Normal-reference-test with two-cumulant (2-c) matched $\\chi^2$-approximation for GLHT problem proposed Zhang et al. (2017)}
 \usage{
 ZGZ2017.GLHT.2cNRT(Y,G,n,p)
 }
