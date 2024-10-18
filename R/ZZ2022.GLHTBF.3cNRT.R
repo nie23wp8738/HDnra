@@ -1,5 +1,5 @@
 #' @title
-#' Normal-reference-test with three-cumulant (3-c) matched χ^2-approximation for GLHT problem under heteroscedasticity proposed by Zhang and Zhu (2022)
+#' Normal-reference-test with three-cumulant (3-c) matched $\\chi^2$-approximation for GLHT problem under heteroscedasticity proposed by Zhang and Zhu (2022)
 #' @description
 #' Zhang and Zhu (2022)'s test for general linear hypothesis testing (GLHT) problem for high-dimensional data under heteroscedasticity.
 
