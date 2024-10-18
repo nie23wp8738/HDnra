@@ -1,5 +1,5 @@
 #' @title
-#' Normal-reference-test with two-cumulant (2-c) matched χ^2-approximation for two-sample problem proposed by Zhang et al. (2020)
+#' Normal-reference-test with two-cumulant (2-c) matched $\\chi^2$-approximation for two-sample problem proposed by Zhang et al. (2020)
 #' @description
 #' Zhang et al. (2020)'s test for testing equality of two-sample high-dimensional mean vectors with assuming that two covariance matrices are the same.
 
