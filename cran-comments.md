@@ -20,7 +20,9 @@ The main note is as follows:
 
 1. Fixed LaTeX errors related to the use of `χ` by replacing it with `$\\chi$` in the Roxygen2 documentation, allowing proper PDF generation.
 2. Updated CRAN URL to use the canonical format `https://CRAN.R-project.org/package=HDNRA`.
-3. Cleaned up temporary files like `HDNRA-manual.tex`.
+3. Cleaned up temporary files like `HDNRA-manual.tex.
+4. Renamed the function `BS1996.TS.NART` to `BS1996.TS.NABT` for consistency.
+5. Fixed several typos in the documentation and function names.
 
 ## Reverse dependencies
 
