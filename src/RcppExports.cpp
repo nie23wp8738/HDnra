@@ -11,15 +11,15 @@ Rcpp::Rostream<true>&  Rcpp::Rcout = Rcpp::Rcpp_cout_get();
 Rcpp::Rostream<false>& Rcpp::Rcerr = Rcpp::Rcpp_cerr_get();
 #endif
 
-// bs1996_ts_nart_cpp
-double bs1996_ts_nart_cpp(const arma::mat& y1, const arma::mat& y2);
-RcppExport SEXP _HDNRA_bs1996_ts_nart_cpp(SEXP y1SEXP, SEXP y2SEXP) {
+// bs1996_ts_nabt_cpp
+double bs1996_ts_nabt_cpp(const arma::mat& y1, const arma::mat& y2);
+RcppExport SEXP _HDNRA_bs1996_ts_nabt_cpp(SEXP y1SEXP, SEXP y2SEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
     Rcpp::traits::input_parameter< const arma::mat& >::type y1(y1SEXP);
     Rcpp::traits::input_parameter< const arma::mat& >::type y2(y2SEXP);
-    rcpp_result_gen = Rcpp::wrap(bs1996_ts_nart_cpp(y1, y2));
+    rcpp_result_gen = Rcpp::wrap(bs1996_ts_nabt_cpp(y1, y2));
     return rcpp_result_gen;
 END_RCPP
 }
@@ -288,7 +288,7 @@ END_RCPP
 }
 
 static const R_CallMethodDef CallEntries[] = {
-    {"_HDNRA_bs1996_ts_nart_cpp", (DL_FUNC) &_HDNRA_bs1996_ts_nart_cpp, 2},
+    {"_HDNRA_bs1996_ts_nabt_cpp", (DL_FUNC) &_HDNRA_bs1996_ts_nabt_cpp, 2},
     {"_HDNRA_cq2010_tsbf_nabt_cpp", (DL_FUNC) &_HDNRA_cq2010_tsbf_nabt_cpp, 2},
     {"_HDNRA_zgzc2020_ts_2cnrt_cpp", (DL_FUNC) &_HDNRA_zgzc2020_ts_2cnrt_cpp, 2},
     {"_HDNRA_zzgz2021_tsbf_2cnrt_cpp", (DL_FUNC) &_HDNRA_zzgz2021_tsbf_2cnrt_cpp, 2},
