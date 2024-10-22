@@ -1,5 +1,9 @@
 # HDNRA 2.0.1
 
+* Renamed the function `BS1996.TS.NART` to `BS1996.TS.NABT` for consistency.
+* Fixed several typos in the documentation and function names.
+
+
 # HDNRA 2.0.0
 
 * The function name has been changed. The title, example, output format of the function have been changed, and some typos have also been corrected.
