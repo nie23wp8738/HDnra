@@ -20,7 +20,7 @@ arma::mat cholesky_inverse(const arma::mat &X) {
 
 // Test proposed by Bai and Saranadasa (1996)
 // [[Rcpp::export]]
-double bs1996_ts_nart_cpp(const arma::mat &y1, const arma::mat &y2) {
+double bs1996_ts_nabt_cpp(const arma::mat &y1, const arma::mat &y2) {
   int n1 = y1.n_rows;
   int n2 = y2.n_rows;
   int p = y1.n_cols;
