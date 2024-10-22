@@ -2,7 +2,9 @@
 
 * Renamed the function `BS1996.TS.NART` to `BS1996.TS.NABT` for consistency.
 * Fixed several typos in the documentation and function names.
-
+* Corrected several typographical errors in the documentation and function names to improve clarity and usability.
+* Replaced deprecated `save-always` with `actions/cache@v3` in GitHub Actions workflow.
+* Enhanced GitHub Actions performance by implementing caching for R package dependencies, leading to faster build times and improved CI efficiency.
 
 # HDNRA 2.0.0
 
