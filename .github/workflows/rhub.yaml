@@ -51,6 +51,12 @@ jobs:
       image: ${{ matrix.config.container }}
 
     steps:
+      - uses: actions/cache@v2
+        with:
+          path: ~/.R
+          key: ${{ runner.os }}-r-${{ hashFiles('**/DESCRIPTION') }}
+          restore-keys: |
+            ${{ runner.os }}-r-
       - uses: r-hub/actions/checkout@v1
       - uses: r-hub/actions/platform-info@v1
         with:
@@ -76,6 +82,12 @@ jobs:
         config: ${{ fromJson(needs.setup.outputs.platforms) }}
 
     steps:
+      - uses: actions/cache@v2
+        with:
+          path: ~/.R
+          key: ${{ runner.os }}-r-${{ hashFiles('**/DESCRIPTION') }}
+          restore-keys: |
+            ${{ runner.os }}-r-
       - uses: r-hub/actions/checkout@v1
       - uses: r-hub/actions/setup-r@v1
         with:
