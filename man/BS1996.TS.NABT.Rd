@@ -4,7 +4,7 @@
 \alias{BS1996.TS.NABT}
 \title{Normal-approximation-based test for two-sample problem proposed by Bai and Saranadasa (1996)}
 \usage{
-BS1996.TS.NART(y1, y2)
+BS1996.TS.NABT(y1, y2)
 }
 \arguments{
 \item{y1}{The data matrix (\eqn{n_1 \times p}) from the first population. Each row represents a \eqn{p}-dimensional observation.}
