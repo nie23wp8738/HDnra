@@ -51,7 +51,7 @@ Five normal-reference tests for the GLHT problem in `HDNRA`
 
 Four existing tests for the two-sample problem in `HDNRA`
 
-- [BS1996.TS.NART](https://nie23wp8738.github.io/HDNRA/reference/BS1996.TS.NART.html)
+- [BS1996.TS.NABT](https://nie23wp8738.github.io/HDNRA/reference/BS1996.TS.NABT.html)
 - [SD2008.TS.NABT](https://nie23wp8738.github.io/HDNRA/reference/SD2008.TS.NABT.html)
 - [CQ2010.TSBF.NABT](https://nie23wp8738.github.io/HDNRA/reference/CQ2010.TSBF.NABT.html)
 - [SKK2013.TSBF.NABT](https://nie23wp8738.github.io/HDNRA/reference/SKK2013.TSBF.NABT.html)
