@@ -3,7 +3,7 @@
 #' @description
 #' Bai and Saranadasa (1996)'s test for testing equality of two-sample high-dimensional mean vectors with assuming that two covariance matrices are the same.
 #'
-#' @usage BS1996.TS.NART(y1, y2)
+#' @usage BS1996.TS.NABT(y1, y2)
 #' @param y1 The data matrix (\eqn{n_1 \times p}) from the first population. Each row represents a \eqn{p}-dimensional observation.
 #' @param y2 The data matrix (\eqn{n_2 \times p}) from the second population. Each row represents a \eqn{p}-dimensional observation.
 #'
